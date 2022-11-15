@@ -285,7 +285,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2002274548}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.2123926, y: 0.6637574, z: 0}
+  m_LocalPosition: {x: 0, y: -3.45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -304,24 +304,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79214df1755300946ae2f06faf6bc73e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canMove: 1
   xMovementSpeed: 4
   yMovementSpeed: 2
+  Walkable:
+    serializedVersion: 2
+    m_Bits: 8
+  distanceToCheckTop: 0.5
+  distanceToCheckBottom: 0.5
+  distanceToCheckLeft: 0.5
+  distanceToCheckRight: 0.5
   jumpHeight: 2
-  jumpspeed:
+  JumpForce: 4
+  gravity: 4
+  accelerationUp:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.017852783
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
       value: 1
       inSlope: 2
       outSlope: 2
@@ -329,18 +328,45 @@ MonoBehaviour:
       weightedMode: 0
       inWeight: 0
       outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 2
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  jumpSpeedMulitplier: 1
-  canJump: 1
-  distanceToCheckTop: 0.5
-  distanceToCheckBottom: 0.5
-  distanceToCheckLeft: 0.5
-  distanceToCheckRight: 0.5
-  Walkable:
+  accelerationDown:
     serializedVersion: 2
-    m_Bits: 8
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 2
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  horizontalVelocity: 0
+  canMove: 1
+  canJump: 1
 --- !u!1 &2074338897
 GameObject:
   m_ObjectHideFlags: 0
