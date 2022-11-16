@@ -57,26 +57,37 @@ namespace Player
 
 
             #region CollisionDetection
-            RaycastHit2D raycastBottom = Physics2D.Raycast(transform.position, Vector2.down, distanceToCheckBottom);
-            if (raycastBottom.collider != null)
-            {
-                if (raycastBottom.collider.CompareTag("Walkable"))
-                {
+            bool canMoveLeft  = true;
+            bool canMoveRight = true;
+            bool canMoveUp    = true;
+            bool canMoveDown  = true;
 
-                }
-            }
+            RaycastHit2D raycastBottom = Physics2D.Raycast(transform.position, Vector2.down, distanceToCheckBottom);
+
+            if (raycastBottom.collider != null && raycastBottom.collider.CompareTag("Walkable")) canMoveUp = true; 
+            else canMoveUp = false;
+               
             #endregion
 
 
             #region Movement
+
             if (canMove) {
                 if (inputAxis.x != 0 || inputAxis.y != 0) {
 
                     //------- Animation Walking -------\\
 
-                    transform.position += (new Vector3(inputAxis.x * xMovementSpeed,
-                                                       inputAxis.y * yMovementSpeed,
-                                                       0) * Time.deltaTime);
+                    // Move left.
+                    if (inputAxis.x < 0 && canMoveLeft)  transform.position += (new Vector3(inputAxis.x * xMovementSpeed, 0, 0) * Time.deltaTime);
+
+                    // Move Right.
+                    if (inputAxis.x > 0 && canMoveRight) transform.position += (new Vector3(inputAxis.x * xMovementSpeed, 0, 0) * Time.deltaTime);
+
+                    // Move Up.
+                    if (inputAxis.y > 0 && canMoveUp)    transform.position += (new Vector3(0, inputAxis.y * yMovementSpeed, 0) * Time.deltaTime);
+
+                    // Move Down.
+                    if (inputAxis.y < 0 && canMoveDown)  transform.position += (new Vector3(0, inputAxis.y * yMovementSpeed, 0) * Time.deltaTime);
                 }
             }
             #endregion
