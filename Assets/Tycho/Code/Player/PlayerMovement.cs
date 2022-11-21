@@ -62,32 +62,38 @@ namespace Player
             bool canMoveUp    = true;
             bool canMoveDown  = true;
 
-            RaycastHit2D raycastLeft   = Physics2D.Raycast(transform.position, Vector2.down, distanceToCheckBottom);
-            RaycastHit2D raycastRight  = Physics2D.Raycast(transform.position, Vector2.down, distanceToCheckBottom);
-            RaycastHit2D raycastBottom = Physics2D.Raycast(transform.position, Vector2.down, distanceToCheckBottom);
-            RaycastHit2D raycastTop    = Physics2D.Raycast(transform.position, Vector2.down, distanceToCheckBottom);
+            RaycastHit2D raycastLeft   = Physics2D.Raycast(transform.position, Vector2.left,  distanceToCheckLeft);
+            RaycastHit2D raycastRight  = Physics2D.Raycast(transform.position, Vector2.right, distanceToCheckRight);
+            RaycastHit2D raycastBottom = Physics2D.Raycast(transform.position, Vector2.down,  distanceToCheckBottom);
+            RaycastHit2D raycastTop    = Physics2D.Raycast(transform.position, Vector2.up,    distanceToCheckTop);
 
-            if (raycastBottom.collider != null && raycastBottom.collider.CompareTag("Walkable") &&
-                raycastTop.collider    != null && !raycastTop.collider.CompareTag("Walkable")) 
+
+            if (raycastBottom.collider != null && raycastBottom.collider.CompareTag("Walkable"))
             {
-                canMoveUp   = true;
-                canMoveDown = true;
-            }
-            else
-            {
-                if ( raycastBottom.collider.CompareTag("Walkable") && !raycastTop.collider.CompareTag("Walkable"))
+                if (raycastTop.collider != null && raycastTop.collider.CompareTag("Walkable"))
                 {
                     canMoveDown = true;
-                    canMoveUp   = false;
                 }
-                if (!raycastBottom.collider.CompareTag("Walkable") &&  raycastTop.collider.CompareTag("Walkable"))
+                else
                 {
                     canMoveDown = false;
-                    canMoveUp = true;
                 }
             }
 
+            if (raycastTop.collider != null &&  raycastTop.collider.CompareTag("Walkable"))
+            {
+                if (raycastBottom.collider != null && raycastBottom.collider.CompareTag("Walkable"))
+                {
+                    canMoveUp = true;
+                }
+                else
+                {
+                    canMoveUp = false;
+                }
+            }
 
+            Debug.DrawRay(transform.position, Vector2.up * distanceToCheckTop, Color.red,0);
+            Debug.DrawRay(transform.position, Vector2.down * distanceToCheckBottom, Color.green, 0);
             #endregion
 
 

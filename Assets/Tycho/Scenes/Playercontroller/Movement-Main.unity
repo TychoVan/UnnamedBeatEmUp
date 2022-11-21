@@ -309,8 +309,8 @@ MonoBehaviour:
   Walkable:
     serializedVersion: 2
     m_Bits: 8
-  distanceToCheckTop: 0.5
-  distanceToCheckBottom: 0.5
+  distanceToCheckTop: 1
+  distanceToCheckBottom: 1
   distanceToCheckLeft: 0.5
   distanceToCheckRight: 0.5
   jumpHeight: 2
