@@ -7,13 +7,14 @@ namespace Steering
     [RequireComponent(typeof(Steering))]
     public class HunterBrain : MonoBehaviour
     {
-        public enum HunterState { Idle, Approach, pursue, evade, FollowPath }
+        public enum HunterState { Idle, Approach, pursue, evade, FollowPath, Attack }
 
         [Header("Target and state")]
         public GameObject target;
         public HunterState state;
         public float pursueRadius = 1f;
         public float approachRadius = 1f;
+        public float attackRadius = 1f;
 
         [Header("Steering settings")]
         public GenericSteering idlesettings;
@@ -22,14 +23,17 @@ namespace Steering
 
         [Header("Private")]
         private Steering m_steering;
-        private Animator animation;
+        
 
         [Header("Array")]
         public GameObject[] waypoints;
 
+        [Header("Attack")]
+        public Enemy_Attack attackScript;
+
         private void Awake()
         {
-            animation = GetComponent<Animator>();
+            
         }
         private void Start()
         {
@@ -52,8 +56,9 @@ namespace Steering
                 case HunterState.Idle:
                     if (distanceToTarget < approachRadius)
                     {
-                        ToApproach();
-                        animation.SetInteger("enum", 1);
+                        if (distanceToTarget > attackRadius)
+                            ToApproach();
+                        
                         PursueSettings.maxSpeed = 2;
                     }                   
                     break;
@@ -61,28 +66,35 @@ namespace Steering
                     if (distanceToTarget > approachRadius)
                     {
                         ToIdle();
-                        animation.SetInteger("enum", 0);
+                        
                         PursueSettings.maxSpeed = 2;
                     }                      
                     else if (distanceToTarget < pursueRadius)
                     {
                         ToPursue();
-                        animation.SetInteger("enum", 2);
+                        
                         PursueSettings.maxSpeed = 4;
+                        attackScript.AllowedAttack = false;
                     }                       
                     break;
                 case HunterState.pursue:
-                    if (distanceToTarget > pursueRadius)
+                    if (distanceToTarget < attackRadius)
                     {
+                        ToIdle();
+                        Debug.Log("Dit werkt");
+                        
+                        attackScript.AllowedAttack = true;
+                    }
+                    else if (distanceToTarget > pursueRadius)
+                    {
+                        attackScript.AllowedAttack = false;
                         ToApproach();
-                        animation.SetInteger("enum", 1);
+                        
                         PursueSettings.maxSpeed = 2;
-                    }                    
+                    }
+                    
                     break;
-                case HunterState.FollowPath:
-
-                    FollowPath();
-                    break;
+                
             }
         }
         //idle state
@@ -124,10 +136,12 @@ namespace Steering
             behaviors.Add(new FollowPath(waypoints));
             m_steering.SetBehaviors(behaviors, "Followpath");
         }
+        
         private void OnDrawGizmos()
         {
             Support.DrawWireDisc(transform.position, approachRadius, Color.cyan);
             Support.DrawWireDisc(transform.position, pursueRadius, Color.cyan);
+            Support.DrawWireDisc(transform.position, attackRadius, Color.red);
         }
     }
   
