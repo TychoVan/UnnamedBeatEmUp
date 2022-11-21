@@ -441,7 +441,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2346952534566748730, guid: ad39976f88e094448a008a951d266285, type: 3}
       propertyPath: m_Name
-      value: Enemy (2)
+      value: enemy
       objectReference: {fileID: 0}
     - target: {fileID: 2346952534566748731, guid: ad39976f88e094448a008a951d266285, type: 3}
       propertyPath: state
@@ -506,7 +506,9 @@ MonoBehaviour:
   timeNumber: 0.5
   timeVisible: 1
   canTime: 0
+  AllowedAttack: 0
   hBrain: {fileID: 1335486398}
+  timeBetweenAttacks: 1
 --- !u!1 &1480684349
 GameObject:
   m_ObjectHideFlags: 0
