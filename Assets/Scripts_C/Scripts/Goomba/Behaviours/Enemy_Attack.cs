@@ -10,7 +10,8 @@ namespace Steering
 
         public float timeVisible = 1f;     
         public bool canTime = false;
-        
+
+        public bool AllowedAttack = false;
         public HunterBrain hBrain;
 
         public float timeBetweenAttacks = 3;
@@ -23,9 +24,23 @@ namespace Steering
         }
 
         public void Update()
-        {               
+        {
+            if (AllowedAttack)
+            {
+                if (timeBetweenAttacks < 0)
+                {
+                    PH_Attack.SetActive(true);
+
+                    if (timeVisible > 0f)
+                    {
+                        canTime = true;
+                    }
+                }
+            }
+            
+
             //is een timer foor de cooldown van attacking
-            if(timeBetweenAttacks > 0)
+            if (timeBetweenAttacks > 0)
             {
                 timeBetweenAttacks = timeBetweenAttacks - 1 * Time.deltaTime;
             }
@@ -49,15 +64,7 @@ namespace Steering
         public void Attack()
         {
             
-            if(timeBetweenAttacks < 0)
-            {
-                PH_Attack.SetActive(true);
-
-                if (timeVisible > 0f)
-                {
-                    canTime = true;
-                }
-            }
+            
             
         }
 
