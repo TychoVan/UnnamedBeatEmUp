@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Steering
@@ -16,7 +18,6 @@ namespace Steering
 
         public float timeBetweenAttacks = 3;
 
-        
         public void Awake()
         {
             timeVisible = timeNumber;
@@ -63,9 +64,7 @@ namespace Steering
 
         public void Attack()
         {
-            
-            
-            
+            PH_Attack.GetComponent<TempEnemyAttack>().Attack();
         }
 
         public void TurnOff()
