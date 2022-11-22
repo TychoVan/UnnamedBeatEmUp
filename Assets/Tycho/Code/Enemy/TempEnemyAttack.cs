@@ -9,7 +9,9 @@ public class TempEnemyAttack : MonoBehaviour
     private I_Damagable otherHealthScript;
     private SpriteRenderer tempOtherObject;
 
-
+    private bool canAttack = true;
+    [SerializeField, Tooltip("Time before the player can attack again in S")]
+    private float attackCooldown = 0.3f;
 
     private void OnTriggerStay2D(Collider2D other)
     {
@@ -17,28 +19,27 @@ public class TempEnemyAttack : MonoBehaviour
         {
             otherHealthScript = other.gameObject.GetComponent<I_Damagable>();
             tempOtherObject = other.gameObject.GetComponent<SpriteRenderer>();
+            if (canAttack)
+            {
+                Attack(tempOtherObject);
+            }
         }
     }
 
 
-    private IEnumerator Attack(SpriteRenderer sprite)
+    private void Attack(SpriteRenderer sprite)
     {
+        canAttack = false;
+        otherHealthScript.ChangeHealth(-damageAmount);
         sprite.color = Color.blue;
-
-        yield return new WaitForSeconds(0.3f);
-
-        sprite.color = Color.white;
     }
-    public void Attack()
-    {
-        Debug.Log("test");
-        if (otherHealthScript != null)
-        {
-            StartCoroutine(Attack(tempOtherObject));
-            otherHealthScript.ChangeHealth(-damageAmount);
 
-            otherHealthScript = null;
-            tempOtherObject = null;
-        }
+    private void OnDisable()
+    {
+        tempOtherObject.color = Color.white;
+        canAttack = true;
+
+        otherHealthScript = null;
+        tempOtherObject = null;
     }
 }

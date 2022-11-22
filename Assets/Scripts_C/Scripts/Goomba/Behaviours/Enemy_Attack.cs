@@ -62,10 +62,6 @@ namespace Steering
             
         }
 
-        public void Attack()
-        {
-            PH_Attack.GetComponent<TempEnemyAttack>().Attack();
-        }
 
         public void TurnOff()
         {
