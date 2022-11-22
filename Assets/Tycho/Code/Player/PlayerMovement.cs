@@ -12,6 +12,8 @@ namespace Player
         [SerializeField] private float              yMovementSpeed;
 
         [Header("RayChecks")]
+        [SerializeField] private Vector2            tempHeightBounds;
+
         [SerializeField] private LayerMask          Walkable;
 
         [SerializeField] private float              distanceToCheckTop;
@@ -66,38 +68,22 @@ namespace Player
             RaycastHit2D raycastRight  = Physics2D.Raycast(transform.position, Vector2.right, distanceToCheckRight);
             RaycastHit2D raycastBottom = Physics2D.Raycast(transform.position, Vector2.down,  distanceToCheckBottom);
             RaycastHit2D raycastTop    = Physics2D.Raycast(transform.position, Vector2.up,    distanceToCheckTop);
-
-
-            if (raycastBottom.collider != null && raycastBottom.collider.CompareTag("Walkable"))
-            {
-                if (raycastTop.collider != null && raycastTop.collider.CompareTag("Walkable"))
-                {
-                    canMoveDown = true;
-                }
-                else
-                {
-                    canMoveDown = false;
-                }
-            }
-
-            if (raycastTop.collider != null &&  raycastTop.collider.CompareTag("Walkable"))
-            {
-                if (raycastBottom.collider != null && raycastBottom.collider.CompareTag("Walkable"))
-                {
-                    canMoveUp = true;
-                }
-                else
-                {
-                    canMoveUp = false;
-                }
-            }
-
-            Debug.DrawRay(transform.position, Vector2.up * distanceToCheckTop, Color.red,0);
-            Debug.DrawRay(transform.position, Vector2.down * distanceToCheckBottom, Color.green, 0);
             #endregion
 
 
             #region Movement
+
+
+
+
+            // TEMPORARY //
+            if (transform.position.y >= tempHeightBounds.x) canMoveUp = false;
+            if (transform.position.y <= tempHeightBounds.y) canMoveDown = false;
+            // TEMPORARY //
+
+
+
+
 
             if (canMove) {
                 if (inputAxis.x != 0 || inputAxis.y != 0) {
@@ -132,8 +118,6 @@ namespace Player
             // Snap the direction to an absolute.
                  if (direction < 0) direction = -1;
             else if (direction > 0) direction =  1;
-
-            Debug.Log(direction);
 
             //------- Animation Startjump -------\\
 
