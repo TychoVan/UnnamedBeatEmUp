@@ -13,6 +13,8 @@ namespace Player
 
         [Header("RayChecks")]
         [SerializeField] private Vector2            tempHeightBounds;
+        [SerializeField] private Vector2            tempWidthBounds;
+
 
         [SerializeField] private LayerMask          Walkable;
 
@@ -77,15 +79,17 @@ namespace Player
 
 
             // TEMPORARY //
-            if (transform.position.y >= tempHeightBounds.x) canMoveUp = false;
+            if (transform.position.y >= tempHeightBounds.x) canMoveUp   = false;
             if (transform.position.y <= tempHeightBounds.y) canMoveDown = false;
-            // TEMPORARY //
+            if (transform.position.x <= tempWidthBounds.x) canMoveLeft  = false;
+            if (transform.position.x >= tempWidthBounds.y) canMoveRight = false;
+                // TEMPORARY //
 
 
 
 
 
-            if (canMove) {
+                if (canMove) {
                 if (inputAxis.x != 0 || inputAxis.y != 0) {
 
                     //------- Animation Walking -------\\

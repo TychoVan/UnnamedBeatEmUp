@@ -104,6 +104,7 @@ MonoBehaviour:
   xMovementSpeed: 3
   yMovementSpeed: 2
   tempHeightBounds: {x: -1.5, y: -3.9}
+  tempWidthBounds: {x: -8.49, y: 8.63}
   Walkable:
     serializedVersion: 2
     m_Bits: 8
