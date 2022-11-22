@@ -15,6 +15,7 @@ namespace Player
         private bool                    canAttack;
 
         private I_Damagable             otherHealthScript;
+        private SpriteRenderer          tempOtherObject;
 
 
 
@@ -31,7 +32,7 @@ namespace Player
             {
                 if (otherHealthScript != null)
                 {
-                    StartCoroutine(Attack());
+                    StartCoroutine(Attack(tempOtherObject));
                 }
             }   
         }
@@ -40,6 +41,7 @@ namespace Player
         private void OnTriggerEnter2D(Collider2D other)
         {
             otherHealthScript = other.gameObject.GetComponent<I_Damagable>();
+            tempOtherObject = other.gameObject.GetComponent<SpriteRenderer>();
         }
 
         private void OnTriggerExit2D(Collider2D other)
@@ -47,16 +49,20 @@ namespace Player
             if (otherHealthScript == other.gameObject.GetComponent<I_Damagable>())
             {
                 otherHealthScript = null;
+                tempOtherObject = null;
             }
         }
 
 
-        private IEnumerator Attack()
+        private IEnumerator Attack(SpriteRenderer sprite)
         {
             canAttack = false;
             otherHealthScript.ChangeHealth(-damageAmount);
+            sprite.color = Color.green;
 
             yield return new WaitForSeconds(attackCooldown);
+
+            sprite.color = Color.red;
             canAttack = true;
         }
     }
