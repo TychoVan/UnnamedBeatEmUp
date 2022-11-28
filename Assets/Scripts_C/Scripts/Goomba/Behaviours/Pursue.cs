@@ -37,11 +37,12 @@ namespace Steering
             return velocityDesired - context.m_velocity;
            
         }
-
+#if UNITY_EDITOR
         public override void OnDrawGizmos(BehaviorContext context)
         {
             base.OnDrawGizmos(context);
             // draw things for behavior
         }
+#endif
     }
 }
