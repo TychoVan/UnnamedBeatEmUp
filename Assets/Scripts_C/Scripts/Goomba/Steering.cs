@@ -41,7 +41,7 @@ namespace Steering
             transform.position = position;
             //transform.LookAt(position + Time.fixedDeltaTime * velocity);
         }
-
+#if UNITY_EDITOR
         private void OnDrawGizmos()
         {
             Support.DrawRay(transform.position, velocity, Color.red);
@@ -52,7 +52,7 @@ namespace Steering
                 behavior.OnDrawGizmos(new BehaviorContext(position, velocity, settings));
             }
         }
-
+#endif
         public void SetBehaviors(BehaviorList behaviors, string label = "")
         {
             //remember new settings

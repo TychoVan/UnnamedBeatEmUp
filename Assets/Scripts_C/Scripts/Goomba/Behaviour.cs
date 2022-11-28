@@ -18,9 +18,13 @@ namespace Steering
         }
         //used to transfer variables to other script
         public abstract Vector3 CalculateSteeringForce(float dt, BehaviorContext context);
+
         public virtual void OnDrawGizmos(BehaviorContext context)
         {
+#if UNITY_EDITOR
             Support.DrawRay(context.m_position, velocityDesired, Color.red);
+#endif
         }
+
     }
 }

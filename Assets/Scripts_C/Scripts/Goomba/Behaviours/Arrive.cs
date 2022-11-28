@@ -44,7 +44,7 @@ namespace Steering
             return velocityDesired - context.m_velocity;
             
         }
-
+#if UNITY_EDITOR
         public override void OnDrawGizmos(BehaviorContext context)
         {
             base.OnDrawGizmos(context);
@@ -52,5 +52,6 @@ namespace Steering
             Support.DrawWireDisc(m_Target.transform.position, context.m_settings.arriveDistance, Color.yellow);
             Support.DrawWireDisc(m_Target.transform.position, context.m_settings.slowingDistance, Color.yellow);
         }
+#endif
     }
 }

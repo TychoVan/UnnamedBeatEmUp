@@ -53,6 +53,7 @@ namespace Steering
             return velocityDesired - context.m_velocity;
         }
 
+#if UNITY_EDITOR
         public override void OnDrawGizmos(BehaviorContext context)
         {
             base.OnDrawGizmos(context);
@@ -72,6 +73,8 @@ namespace Steering
                 _previousWP = _currentWP;
             }
             //met grote hulp van milos
+
         }
+#endif
     }
 }

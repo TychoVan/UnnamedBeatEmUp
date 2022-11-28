@@ -136,13 +136,14 @@ namespace Steering
             behaviors.Add(new FollowPath(waypoints));
             m_steering.SetBehaviors(behaviors, "Followpath");
         }
-        
+#if UNITY_EDITOR
         private void OnDrawGizmos()
         {
             Support.DrawWireDisc(transform.position, approachRadius, Color.cyan);
             Support.DrawWireDisc(transform.position, pursueRadius, Color.cyan);
             Support.DrawWireDisc(transform.position, attackRadius, Color.red);
         }
+#endif
     }
   
 }

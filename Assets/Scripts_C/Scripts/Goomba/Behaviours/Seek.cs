@@ -25,11 +25,12 @@ namespace Steering
             velocityDesired = (positionTarget - context.m_position).normalized * context.m_settings.maxDesiredVelocity;
             return velocityDesired - context.m_velocity;
         }
-
+#if UNITY_EDITOR
         public override void OnDrawGizmos(BehaviorContext context)
         {
             base.OnDrawGizmos(context);
             // draw things for behavior
         }
+#endif
     }
 }

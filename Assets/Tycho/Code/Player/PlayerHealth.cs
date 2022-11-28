@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 namespace Player
 {
@@ -35,6 +35,7 @@ namespace Player
         public void OnDeath()
         {
             gameObject.SetActive(false);
+            SceneManager.LoadScene("Playtest1");
         }
     }
 }
