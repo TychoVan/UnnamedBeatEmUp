@@ -11,7 +11,6 @@ namespace Player
         [SerializeField] private int        maxHealth           = 10;
 
 
-
         private void Start()
         {
             // Set the health.
