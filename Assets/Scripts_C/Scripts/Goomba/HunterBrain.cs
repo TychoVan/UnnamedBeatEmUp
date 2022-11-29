@@ -56,7 +56,8 @@ namespace Steering
                 case HunterState.Idle:
                     if (distanceToTarget < approachRadius)
                     {
-                        ToApproach();
+                        if (distanceToTarget > attackRadius)
+                            ToApproach();
                         
                         PursueSettings.maxSpeed = 2;
                     }                   
@@ -73,29 +74,27 @@ namespace Steering
                         ToPursue();
                         
                         PursueSettings.maxSpeed = 4;
+                        attackScript.AllowedAttack = false;
                     }                       
                     break;
                 case HunterState.pursue:
                     if (distanceToTarget < attackRadius)
                     {
-                        ToAttack();
+                        ToIdle();
                         Debug.Log("Dit werkt");
+                        
+                        attackScript.AllowedAttack = true;
                     }
                     else if (distanceToTarget > pursueRadius)
                     {
+                        attackScript.AllowedAttack = false;
                         ToApproach();
                         
                         PursueSettings.maxSpeed = 2;
                     }
                     
                     break;
-                case HunterState.FollowPath:
-
-                    FollowPath();
-                    break;
-                case HunterState.Attack:
-
-                    break;
+                
             }
         }
         //idle state
@@ -137,18 +136,14 @@ namespace Steering
             behaviors.Add(new FollowPath(waypoints));
             m_steering.SetBehaviors(behaviors, "Followpath");
         }
-        private void ToAttack()
-        {
-            state = HunterState.Attack;
-            attackScript.Attack();
-            m_steering.settings = idlesettings;
-        }
+#if UNITY_EDITOR
         private void OnDrawGizmos()
         {
             Support.DrawWireDisc(transform.position, approachRadius, Color.cyan);
             Support.DrawWireDisc(transform.position, pursueRadius, Color.cyan);
             Support.DrawWireDisc(transform.position, attackRadius, Color.red);
         }
+#endif
     }
   
 }
