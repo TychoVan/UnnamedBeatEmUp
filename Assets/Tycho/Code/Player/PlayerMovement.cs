@@ -83,13 +83,13 @@ namespace Player
             if (transform.position.y <= tempHeightBounds.y) canMoveDown = false;
             if (transform.position.x <= tempWidthBounds.x) canMoveLeft  = false;
             if (transform.position.x >= tempWidthBounds.y) canMoveRight = false;
-                // TEMPORARY //
+            // TEMPORARY //
 
 
 
 
 
-                if (canMove) {
+            if (canMove) {
                 if (inputAxis.x != 0 || inputAxis.y != 0) {
 
                     //------- Animation Walking -------\\
@@ -123,10 +123,15 @@ namespace Player
                  if (direction < 0) direction = -1;
             else if (direction > 0) direction =  1;
 
-            //------- Animation Startjump -------\\
+            //if (transform.position.x + direction * horizontalVelocity <= tempWidthBounds.x || 
+            //    transform.position.x + direction * horizontalVelocity >= tempWidthBounds.y) { 
+            //    direction = 0; 
+            //}
 
-            // Move up.
-            while (transform.position.y < startHeight + jumpHeight) {
+                //------- Animation Startjump -------\\
+
+                // Move up.
+                while (transform.position.y < startHeight + jumpHeight) {
                 transform.position += (new Vector3(direction * horizontalVelocity,
                                                    accelerationUp.Evaluate((transform.position.y - startHeight) / jumpHeight) * JumpForce,
                                                    0) * Time.deltaTime);
