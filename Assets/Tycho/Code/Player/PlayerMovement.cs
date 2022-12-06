@@ -11,6 +11,7 @@ namespace Player
         [SerializeField] private float              yMovementSpeed;
         [field: SerializeField] public Vector2      InputAxis { get; private set; }
 
+
         [Header("RayChecks")]
         [SerializeField] private Vector2            tempHeightBounds;
         [SerializeField] private Vector2            tempWidthBounds;
