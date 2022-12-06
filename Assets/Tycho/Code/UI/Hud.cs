@@ -19,24 +19,25 @@ namespace UI
                 Slider slider = sliderElement[i];
 
                 slider.Bar = slider.Element.transform.Find("Bar").GetComponent<Image>();
-                slider.Bar.fillAmount = 0;
             }
         }
 
 
-        public void ChangeFill(int sliderNr, float amount)
+        public void ChangeFill(int sliderNr)
         {
             Slider slider       = sliderElement[sliderNr];
 
 
             slider.LerpingBar = false;
             if (!slider.LerpingBar) StartCoroutine(LerpSlider(slider));
+            Debug.Log("test");
         }
 
 
         // Smoothly change the element fill to the right value.
         private IEnumerator LerpSlider(Slider slider)
         {
+            Debug.Log(slider.Bar.fillAmount);
             float timer       = 0;
 
             // Get the fill information.
