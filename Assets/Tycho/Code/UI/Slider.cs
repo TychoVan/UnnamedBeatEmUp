@@ -9,6 +9,8 @@ namespace UI
     [System.Serializable]
     public class Slider
     {
+        public string       Name;
+
         public  float       SlideSpeed              = 2;
         public bool         LerpingBar              = false;
 

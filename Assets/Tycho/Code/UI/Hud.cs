@@ -53,6 +53,8 @@ namespace UI
                 timer                 += Time.deltaTime * slider.SlideSpeed;
                 currentFill            = Mathf.Lerp(startFill, targetFill, timer);
                 slider.Bar.fillAmount  = currentFill;
+
+                yield return new WaitForEndOfFrame();
             }
 
             slider.LerpingBar = false;
