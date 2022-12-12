@@ -452,6 +452,9 @@ MonoBehaviour:
   <Health>k__BackingField: 0
   startHealth: 9
   maxHealth: 9
+  OnTakeDamage:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!61 &975105337274621443
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -468,8 +471,8 @@ BoxCollider2D:
   m_Offset: {x: 0.07287435, y: -0.029149652}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.98, y: 2.89}
+    pivot: {x: 0.34, y: 0.5}
+    oldSize: {x: 2.87, y: 2.87}
     newSize: {x: 1, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -490,8 +493,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79214df1755300946ae2f06faf6bc73e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xMovementSpeed: 3
   yMovementSpeed: 2
+  <xMovementSpeed>k__BackingField: 3
   <InputAxis>k__BackingField: {x: 0, y: 0}
   tempHeightBounds: {x: -1.5, y: -3.9}
   tempWidthBounds: {x: -8.49, y: 8.63}
@@ -612,7 +615,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 21300000, guid: fd068700242015844ab5cfa674f2f497, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 80a2e0481c33c70488815d67035e5341, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -622,7 +625,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!1 &975105337274621455
 GameObject:
   m_ObjectHideFlags: 0
@@ -634,11 +637,11 @@ GameObject:
   - component: {fileID: 975105337274621453}
   - component: {fileID: 975105337274621454}
   - component: {fileID: 975105337274621452}
+  - component: {fileID: 975105337274621456}
   - component: {fileID: 975105337274621442}
   - component: {fileID: 975105337274621441}
   - component: {fileID: 975105337274621443}
   - component: {fileID: 975105337274621440}
-  - component: {fileID: 975105337274621456}
   - component: {fileID: 975105337274621457}
   - component: {fileID: 975105337274621458}
   m_Layer: 0
@@ -660,7 +663,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bcc281e9c03cb24bbd4e6241e222819, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerState: 0
+  idleAnimation: {fileID: 7400000, guid: 182e065237859ab4789be9c5f17b0299, type: 2}
+  idleAnimSpeed: 0
+  walkingAnimation: {fileID: 7400000, guid: 3fbd5e6af08d43a44a8666b27883f562, type: 2}
+  walkAnimSpeed: 1
+  multiplyAnimMoveSpeed: 0
+  jumpingAnimation: {fileID: 0}
+  jumpSpeed: 1
+  fallingAnimation: {fileID: 0}
+  fallSpeed: 1
+  landingAnimation: {fileID: 0}
+  landSpeed: 1
+  animationState: 0
 --- !u!111 &975105337274621457
 Animation:
   m_ObjectHideFlags: 0

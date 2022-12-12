@@ -7,9 +7,9 @@ namespace Player
     public class PlayerMovement : MonoBehaviour
     {
         [Header("Movement")]
-        [SerializeField] private float              xMovementSpeed;
         [SerializeField] private float              yMovementSpeed;
-        [field: SerializeField] public Vector2      InputAxis { get; private set; }
+        [field: SerializeField] public float        xMovementSpeed { get; private set; }
+        [field: SerializeField] public Vector2      InputAxis       { get; private set; }
 
 
         [Header("RayChecks")]
@@ -36,13 +36,15 @@ namespace Player
         [Header("Debug")]
         [SerializeField] private bool               canMove;
         [SerializeField] private bool               canJump;
+        private PlayerAnimations                    animator;
 
 
 
 
         private void Start()
         {
-            canJump = true;
+            animator = this.gameObject.GetComponent<PlayerAnimations>();
+            canJump  = true;
         }
 
 
@@ -80,10 +82,10 @@ namespace Player
 
 
             // TEMPORARY //
-            if (transform.position.y >= tempHeightBounds.x) canMoveUp   = false;
-            if (transform.position.y <= tempHeightBounds.y) canMoveDown = false;
-            if (transform.position.x <= tempWidthBounds.x) canMoveLeft  = false;
-            if (transform.position.x >= tempWidthBounds.y) canMoveRight = false;
+            if (transform.position.y >= tempHeightBounds.x) canMoveUp    = false;
+            if (transform.position.y <= tempHeightBounds.y) canMoveDown  = false;
+            if (transform.position.x <= tempWidthBounds.x)  canMoveLeft  = false;
+            if (transform.position.x >= tempWidthBounds.y)  canMoveRight = false;
             // TEMPORARY //
 
 
@@ -92,8 +94,6 @@ namespace Player
 
             if (canMove) {
                 if (InputAxis.x != 0 || InputAxis.y != 0) {
-
-                    //------- Animation Walking -------\\
 
                     // Move left.
                     if (InputAxis.x < 0 && canMoveLeft)  transform.position += (new Vector3(InputAxis.x * xMovementSpeed, 0, 0) * Time.deltaTime);
@@ -124,15 +124,13 @@ namespace Player
                  if (direction < 0) direction = -1;
             else if (direction > 0) direction =  1;
 
-            //if (transform.position.x + direction * horizontalVelocity <= tempWidthBounds.x || 
-            //    transform.position.x + direction * horizontalVelocity >= tempWidthBounds.y) { 
-            //    direction = 0; 
-            //}
 
-                //------- Animation Startjump -------\\
+            //Set player animation.
+            if (animator) animator.SetJumpState(Jumpstate.jumping);
 
-                // Move up.
-                while (transform.position.y < startHeight + jumpHeight) {
+
+            // Move up.
+            while (transform.position.y < startHeight + jumpHeight) {
                 transform.position += (new Vector3(direction * horizontalVelocity,
                                                    accelerationUp.Evaluate((transform.position.y - startHeight) / jumpHeight) * JumpForce,
                                                    0) * Time.deltaTime);
@@ -144,7 +142,9 @@ namespace Player
             }
 
 
-            //------- Animation EndJump -------\\
+            //Set player animation.
+            if (animator) animator.SetJumpState(Jumpstate.falling);
+
 
             // Move down
             while (transform.position.y > startHeight)
@@ -158,6 +158,15 @@ namespace Player
 
                 yield return new WaitForEndOfFrame();
             }
+
+            //Set player animation.
+            if (animator)
+            {
+                animator.SetJumpState(Jumpstate.landing);
+                yield return new WaitForSeconds(animator.LandingDuration());
+                animator.SetJumpState(Jumpstate.grounded);
+            }
+
 
             // Unlock movement.
             canJump = true;
