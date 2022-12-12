@@ -19,13 +19,12 @@ public class DashAttack : MonoBehaviour
 
     public void Start()
     {
-        spawnPoints();
+       
     }
     
-
     public void Update()
     {
-           
+           // sets
         if(attackTimer > 0)
         {
             Dashing();
@@ -36,33 +35,40 @@ public class DashAttack : MonoBehaviour
             attackTimer = attackReset;
             attackCount++;
         }
+        //destroys if final checkpoint reached
+        if(attackCount == 3)
+        {
+            Destroy(dashpositions[0]);
+            Destroy(dashpositions[1]);
+            Destroy(dashpositions[2]);
+        }
     }
     public void Dashing()
     {
+        //code for dashing
         if (AllowDash)
         {
             transform.position = Vector3.Lerp(transform.position, dashpositions[attackCount].transform.position, speed);
-        }
-        
+        }       
     }
     public void spawnPoints()
-    {        
+    {
+        attackCount = 0;
         for(int i = 0; i < dashpositions.Length; i++)
         {
-            
+            //random position between - and + x and y coordinates
             X = Random.Range(-8, 8);
             Y = Random.Range(-4, 4);
 
+            // sets the spawn pos, and places checkpoint in their right slot
             Vector3 spawnpos = new Vector3(X, Y, 0);
             dashpositions[i] = Instantiate(marker, spawnpos, transform.rotation);
             
-            
+            // if i is 2 (max checkpoints) set allow dash to true
             if (i == 2)
             {
-                AllowDash = true;
-               
-            }
-           
+                AllowDash = true;            
+            }          
         }              
     }
 }

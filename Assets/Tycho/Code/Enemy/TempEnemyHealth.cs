@@ -8,6 +8,7 @@ public class TempEnemyHealth : MonoBehaviour, I_Damagable
 
     [SerializeField] private int startHealth = 10;
     [SerializeField] private int maxHealth = 10;
+    [SerializeField] private GameObject healthPickUp;
 
 
 
@@ -36,5 +37,6 @@ public class TempEnemyHealth : MonoBehaviour, I_Damagable
     public void OnDeath()
     {
         gameObject.SetActive(false);
+        
     }
 }

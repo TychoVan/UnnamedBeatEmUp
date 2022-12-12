@@ -2,32 +2,42 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectPickup : MonoBehaviour
+namespace Player
 {
-    public GameObject player;
-    public Transform playerTransform;
-    public float speed;
-    public bool allowPickup = false;
-    public Rigidbody2D rb;
-    public Vector3 forward;
-    public float pulseForce;
-    public float declineRate;
-    public float velY;
-
-    public void Start()
+    public class ObjectPickup : MonoBehaviour
     {
-        velY = rb.velocity.y;
-    }
+        public GameObject player;
+        public float speed;       
+        public Rigidbody2D rb;
+        public Vector3 forward;
+        public float declineRate;
+        public float velY;
+       // public float timer = 0f;
 
-    public void Update()
-    {
-        if (allowPickup)
-        {            
-           transform.position = Vector3.Lerp(transform.position, player.transform.position, speed);            
+        public PlayerHealth pHealth;
+
+
+        public void Awake()
+        {
+            pHealth = FindObjectOfType<PlayerHealth>();
+           
         }
-        
+        public void Start()
+        {
+            velY = rb.velocity.y;
+        }
+
+        public void Update()
+        {                       
+                transform.position = Vector3.Lerp(transform.position, player.transform.position, speed);
+                Debug.Log("Wtf");                                    
+        }
+      
+        public void OnTriggerEnter2D(Collider2D collision)
+        {                                
+                Destroy(gameObject);
+                pHealth.ChangeHealth(+1);                      
+        }
+
     }
-    
-    
-        
 }

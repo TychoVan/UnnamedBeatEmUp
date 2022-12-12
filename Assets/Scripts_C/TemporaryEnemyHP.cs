@@ -8,6 +8,8 @@ public class TemporaryEnemyHP : MonoBehaviour, I_Damagable
 
     [SerializeField] private int startHealth = 10;
     [SerializeField] private int maxHealth = 10;
+    [SerializeField] private GameObject healthPickUp;
+    [SerializeField] private float timer = 1f;
 
 
 
@@ -37,5 +39,7 @@ public class TemporaryEnemyHP : MonoBehaviour, I_Damagable
     public void OnDeath()
     {
         gameObject.SetActive(false);
+        
+        Instantiate(healthPickUp);
     }
 }
