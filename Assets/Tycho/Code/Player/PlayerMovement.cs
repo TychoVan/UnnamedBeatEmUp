@@ -7,9 +7,10 @@ namespace Player
     public class PlayerMovement : MonoBehaviour
     {
         [Header("Movement")]
-        private Vector2                             inputAxis;
         [SerializeField] private float              xMovementSpeed;
         [SerializeField] private float              yMovementSpeed;
+        [field: SerializeField] public Vector2      InputAxis { get; private set; }
+
 
         [Header("RayChecks")]
         [SerializeField] private Vector2            tempHeightBounds;
@@ -49,13 +50,13 @@ namespace Player
         {
             #region input
             // Get walking input
-            inputAxis = new Vector2(Input.GetAxisRaw("Horizontal"),
+            InputAxis = new Vector2(Input.GetAxisRaw("Horizontal"),
                                     Input.GetAxisRaw("Vertical"));
 
             // Get jump input.
             if (canJump)
             {
-                if (Input.GetButtonDown("Jump")) StartCoroutine(Jump(inputAxis.x));
+                if (Input.GetButtonDown("Jump")) StartCoroutine(Jump(InputAxis.x));
             }
             #endregion
 
@@ -90,21 +91,21 @@ namespace Player
 
 
             if (canMove) {
-                if (inputAxis.x != 0 || inputAxis.y != 0) {
+                if (InputAxis.x != 0 || InputAxis.y != 0) {
 
                     //------- Animation Walking -------\\
 
                     // Move left.
-                    if (inputAxis.x < 0 && canMoveLeft)  transform.position += (new Vector3(inputAxis.x * xMovementSpeed, 0, 0) * Time.deltaTime);
+                    if (InputAxis.x < 0 && canMoveLeft)  transform.position += (new Vector3(InputAxis.x * xMovementSpeed, 0, 0) * Time.deltaTime);
 
                     // Move Right.
-                    if (inputAxis.x > 0 && canMoveRight) transform.position += (new Vector3(inputAxis.x * xMovementSpeed, 0, 0) * Time.deltaTime);
+                    if (InputAxis.x > 0 && canMoveRight) transform.position += (new Vector3(InputAxis.x * xMovementSpeed, 0, 0) * Time.deltaTime);
 
                     // Move Up.
-                    if (inputAxis.y > 0 && canMoveUp)    transform.position += (new Vector3(0, inputAxis.y * yMovementSpeed, 0) * Time.deltaTime);
+                    if (InputAxis.y > 0 && canMoveUp)    transform.position += (new Vector3(0, InputAxis.y * yMovementSpeed, 0) * Time.deltaTime);
 
                     // Move Down.
-                    if (inputAxis.y < 0 && canMoveDown)  transform.position += (new Vector3(0, inputAxis.y * yMovementSpeed, 0) * Time.deltaTime);
+                    if (InputAxis.y < 0 && canMoveDown)  transform.position += (new Vector3(0, InputAxis.y * yMovementSpeed, 0) * Time.deltaTime);
                 }
             }
             #endregion
