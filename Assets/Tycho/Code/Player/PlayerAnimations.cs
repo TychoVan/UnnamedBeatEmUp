@@ -14,18 +14,14 @@ namespace Player{
     public class PlayerAnimations : MonoBehaviour
     {
         [Header("Idle")]
-        [SerializeField] private AnimationClip  idleAnimation;
         [SerializeField] private float          idleAnimSpeed;
 
         [Header("Walking")]
-        [SerializeField] private AnimationClip  walkingAnimation;
         [SerializeField] private float          walkAnimSpeed               = 1;
         [SerializeField] private bool           multiplyAnimMoveSpeed;
 
         [Header("Jumping")]
-        [SerializeField] private AnimationClip  jumpingAnimation;
         [SerializeField] private float          jumpSpeed                   = 1;
-        [SerializeField] private AnimationClip  fallingAnimation;
         [SerializeField] private float          fallSpeed                   = 1;
         [SerializeField] private AnimationClip  landingAnimation;
         [SerializeField] private float          landSpeed                   = 1;
@@ -42,11 +38,7 @@ namespace Player{
 
 
 
-        public float LandingDuration() 
-        {
-            Debug.Log(landingAnimation ? landingAnimation.length * landSpeed : 0);
-            return landingAnimation? landingAnimation.length * landSpeed :  0;
-        }
+        public float LandingDuration() { return landingAnimation? landingAnimation.length * landSpeed :  0; }
 
         private void Awake()
         {
