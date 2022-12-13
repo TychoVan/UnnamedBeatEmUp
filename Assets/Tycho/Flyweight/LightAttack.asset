@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc7bbe6ffb9ebd64ebd19207d0ab6ced, type: 3}
-  m_Name: SmallAttack
+  m_Name: LightAttack
   m_EditorClassIdentifier: 
   <HittableTags>k__BackingField: []
-  <ManaCost>k__BackingField: 0
-  <AttackCooldown>k__BackingField: 0
-  <AttackObject>k__BackingField: 0
+  <ManaCost>k__BackingField: 2
+  <AttackCooldown>k__BackingField: 1
+  <DamageAmount>k__BackingField: 1
+  <AnimationTag>k__BackingField: 0
