@@ -12,6 +12,12 @@ namespace Player
         [field: SerializeField] public GameObject[] AttackHitboxes { get; private set; }
 
         [Header("DO NOT EDIT")]
+<<<<<<< Updated upstream
         public List<IAttack> AttackScripts;
+=======
+        public List<IAttack>                        AttackScripts;
+        public float                                CurrentCooldown;
+        public bool                                 CanAttack;
+>>>>>>> Stashed changes
     }
 }

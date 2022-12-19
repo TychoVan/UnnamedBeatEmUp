@@ -13,6 +13,8 @@ namespace Player{
 
     public class PlayerAnimations : MonoBehaviour
     {
+        [SerializeField] private PlayerState    animationState;
+
         [Header("Idle")]
         [SerializeField] private float          idleAnimSpeed;
 
@@ -24,21 +26,21 @@ namespace Player{
         [SerializeField] private float          jumpSpeed                   = 1;
         [SerializeField] private float          fallSpeed                   = 1;
         [SerializeField] private AnimationClip  landingAnimation;
-        [SerializeField] private float          landSpeed                   = 1;
+        [field: SerializeField] public float    LandSpeed                   = 1;
 
         // Private 
-        [SerializeField] private PlayerState                     animationState;
         private Jumpstate                       jumpstate;
 
         private Animator                        animator;
         private PlayerMovement                  movementScript;
 
         private Vector3                         startScale;     // the scale of this object at the start of the game.
+        private AnimationClip                   currentAnimation;
 
 
 
 
-        public float LandingDuration() { return landingAnimation? landingAnimation.length * landSpeed :  0; }
+        public float AnimationDuration() { return currentAnimation ? landingAnimation.length : 0; }
 
         private void Awake()
         {
@@ -57,8 +59,8 @@ namespace Player{
 
         private void Update()
         {
-            // Flip the 
-            if (movementScript.InputAxis.x != 0 || movementScript.InputAxis.y != 0) {
+            // Flip the Player sprite to movement direction and play walking animation.
+            if (movementScript.canMove && movementScript.InputAxis.x != 0 || movementScript.canMove && movementScript.InputAxis.y != 0) {
                 transform.localScale = new Vector3(Mirrored(),
                                                    transform.localScale.y,
                                                    transform.localScale.z);
@@ -77,14 +79,13 @@ namespace Player{
                 switch (animationState)
                 {
                     case PlayerState.idle:
-                        animator.speed = idleAnimSpeed;
-                        animator.SetInteger("AnimationState", 0);
+                        PlayAnimation("AnimationState", 0, idleAnimSpeed);
                         break;
 
                     case PlayerState.walking:
                         if (multiplyAnimMoveSpeed) animator.speed = walkAnimSpeed * movementScript.xMovementSpeed;
                         else                       animator.speed = walkAnimSpeed;
-                        animator.SetInteger("AnimationState", 1);
+                        PlayAnimation("AnimationState", 1, walkAnimSpeed);
                         break;
 
                     default:
@@ -101,17 +102,15 @@ namespace Player{
             switch (jumpstate)
             {
                 case Jumpstate.jumping:
-                    animator.speed = jumpSpeed;
-                    animator.SetInteger("JumpState", 1);
+                    PlayAnimation("JumpState", 1, jumpSpeed);
                     break;
 
                 case Jumpstate.falling:
-                    animator.speed = fallSpeed;
-                    animator.SetInteger("JumpState", 2);
+                    PlayAnimation("JumpState", 2, fallSpeed);
                     break;
 
                 case Jumpstate.landing:
-                    animator.SetInteger("JumpState", 3);
+                    PlayAnimation("JumpState", 3, LandSpeed);
                     break;
 
                 default:
@@ -119,6 +118,19 @@ namespace Player{
                     animationState = PlayerState.idle;
                     break;
             }
+        }
+
+
+        /// <summary>
+        /// Play animation in animator.
+        /// </summary>
+        /// <param name="animationType">Name of integer parameter.</param>
+        /// <param name="animationNumber">Integer number of animation.</param>
+        /// <param name="speed">Speed of the animation being played.</param>
+        public void PlayAnimation(string animationType, int animationNumber, float speed)
+        {
+            animator.speed = speed;
+            animator.SetInteger(animationType, animationNumber);
         }
 
     }

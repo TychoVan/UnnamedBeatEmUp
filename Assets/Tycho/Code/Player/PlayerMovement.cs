@@ -34,7 +34,7 @@ namespace Player
 
 
         [Header("Debug")]
-        [SerializeField] private bool               canMove;
+        public bool               canMove;
         [SerializeField] private bool               canJump;
         private PlayerAnimations                    animator;
 
@@ -126,7 +126,7 @@ namespace Player
 
 
             //Set player animation.
-            if (animator) animator.SetJumpState(Jumpstate.jumping);
+            animator?.SetJumpState(Jumpstate.jumping);
 
 
             // Move up.
@@ -143,7 +143,7 @@ namespace Player
 
 
             //Set player animation.
-            if (animator) animator.SetJumpState(Jumpstate.falling);
+            animator?.SetJumpState(Jumpstate.falling);
 
 
             // Move down
@@ -163,7 +163,7 @@ namespace Player
             if (animator)
             {
                 animator.SetJumpState(Jumpstate.landing);
-                yield return new WaitForSeconds(animator.LandingDuration());
+                yield return new WaitForSeconds(animator.AnimationDuration() * animator.LandSpeed);
                 animator.SetJumpState(Jumpstate.grounded);
             }
 
