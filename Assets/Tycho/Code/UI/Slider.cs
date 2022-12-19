@@ -6,22 +6,44 @@ using UnityEngine.UI;
 
 namespace UI
 {
-    [System.Serializable]
-    public class Slider
+    public class Slider : MonoBehaviour
     {
-        public string       Name;
+        public  SliderData Data;
+        private Image      Bar;
 
-        public  float       SlideSpeed              = 2;
-        public bool         LerpingBar              = false;
 
-        public GameObject   Element;
-        public Image        Bar;
+        public void Start()
+        {
+            Bar = this.gameObject.transform.Find("Bar").GetComponent<Image>();
+        }
 
-        [SerializeInterface(typeof(I_ScoreValue))]
-        [SerializeField]
-        private Object _FillValues;
+        // Smoothly change the element fill to the right value.
+        public IEnumerator LerpSlider()
+        {
+            Data.LerpingBar = false;
 
-        public I_ScoreValue FillValues => _FillValues as I_ScoreValue;
+            float timer       = 0;
+
+            // Get the fill information.
+            float startFill   =  Bar.fillAmount;
+            float targetFill  = (Data.FillValues.UIValue    - Data.FillValues.UIMinValue) /
+                                (Data.FillValues.UIMaxValue - Data.FillValues.UIMinValue);
+            float currentFill = startFill;
+
+            Data.LerpingBar = true;
+
+            while (timer < 1 && Data.LerpingBar)
+            {
+                timer        += Time.deltaTime * Data.SlideSpeed;
+                currentFill   = Mathf.Lerp(startFill, targetFill, timer);
+                Bar.fillAmount = currentFill;
+
+                yield return new WaitForEndOfFrame();
+            }
+
+            Data.LerpingBar = false;
+
+            yield return null;
+        }
     }
 }
-    

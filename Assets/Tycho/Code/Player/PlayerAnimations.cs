@@ -58,7 +58,7 @@ namespace Player{
         private void Update()
         {
             // Flip the 
-            if (movementScript.InputAxis.x != 0) {
+            if (movementScript.InputAxis.x != 0 || movementScript.InputAxis.y != 0) {
                 transform.localScale = new Vector3(Mirrored(),
                                                    transform.localScale.y,
                                                    transform.localScale.z);
@@ -101,15 +101,21 @@ namespace Player{
             switch (jumpstate)
             {
                 case Jumpstate.jumping:
+                    animator.speed = jumpSpeed;
+                    animator.SetInteger("JumpState", 1);
                     break;
 
                 case Jumpstate.falling:
+                    animator.speed = fallSpeed;
+                    animator.SetInteger("JumpState", 2);
                     break;
 
                 case Jumpstate.landing:
+                    animator.SetInteger("JumpState", 3);
                     break;
 
                 default:
+                    animator.SetInteger("JumpState", 0);
                     animationState = PlayerState.idle;
                     break;
             }

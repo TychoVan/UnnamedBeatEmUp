@@ -663,14 +663,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bcc281e9c03cb24bbd4e6241e222819, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idleAnimation: {fileID: 7400000, guid: 182e065237859ab4789be9c5f17b0299, type: 2}
-  idleAnimSpeed: 0
-  walkingAnimation: {fileID: 7400000, guid: 3fbd5e6af08d43a44a8666b27883f562, type: 2}
+  idleAnimSpeed: 0.001
   walkAnimSpeed: 1
   multiplyAnimMoveSpeed: 0
-  jumpingAnimation: {fileID: 0}
   jumpSpeed: 1
-  fallingAnimation: {fileID: 0}
   fallSpeed: 1
   landingAnimation: {fileID: 0}
   landSpeed: 1
