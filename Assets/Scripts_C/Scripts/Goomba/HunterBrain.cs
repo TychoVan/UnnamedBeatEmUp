@@ -81,7 +81,7 @@ namespace Steering
                     if (distanceToTarget < attackRadius)
                     {
                         ToIdle();
-                        Debug.Log("Dit werkt");
+                       
                         
                         attackScript.AllowedAttack = true;
                     }

@@ -225,6 +225,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 125976774}
+  - component: {fileID: 125976775}
   m_Layer: 5
   m_Name: Health bar UI
   m_TagString: Untagged
@@ -254,6 +255,25 @@ RectTransform:
   m_AnchoredPosition: {x: 60, y: -40}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 1}
+--- !u!114 &125976775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125976773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d49ef88198158b74992996038554f775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Data:
+    Name: 
+    SlideSpeed: 2
+    LerpingBar: 0
+    <Slider>k__BackingField: {fileID: 0}
+    _FillValues: {fileID: 0}
+  Bar: {fileID: 0}
 --- !u!1 &169232434
 GameObject:
   m_ObjectHideFlags: 0
@@ -1119,17 +1139,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0e80f3596cf7e94aac101124de41367, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sliderElement:
-  - SlideSpeed: 2
+  sliderElements:
+  - Name: 
+    SlideSpeed: 0
     LerpingBar: 0
-    Element: {fileID: 125976773}
-    Bar: {fileID: 0}
-    _FillValues: {fileID: 975105336245461016}
-  - SlideSpeed: 2
+    <Slider>k__BackingField: {fileID: 0}
+    _FillValues: {fileID: 0}
+  - Name: 
+    SlideSpeed: 0
     LerpingBar: 0
-    Element: {fileID: 1650268581}
-    Bar: {fileID: 0}
-    _FillValues: {fileID: 975105336245461016}
+    <Slider>k__BackingField: {fileID: 0}
+    _FillValues: {fileID: 0}
 --- !u!1 &1650268581
 GameObject:
   m_ObjectHideFlags: 0
@@ -1139,6 +1159,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1650268582}
+  - component: {fileID: 1650268583}
   m_Layer: 5
   m_Name: Mana bar UI
   m_TagString: Untagged
@@ -1168,6 +1189,25 @@ RectTransform:
   m_AnchoredPosition: {x: 60, y: -160}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 1}
+--- !u!114 &1650268583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650268581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d49ef88198158b74992996038554f775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Data:
+    Name: 
+    SlideSpeed: 2
+    LerpingBar: 0
+    <Slider>k__BackingField: {fileID: 0}
+    _FillValues: {fileID: 0}
+  Bar: {fileID: 0}
 --- !u!1 &1721158457
 GameObject:
   m_ObjectHideFlags: 0
@@ -1431,8 +1471,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79214df1755300946ae2f06faf6bc73e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xMovementSpeed: 3
   yMovementSpeed: 2
+  <xMovementSpeed>k__BackingField: 3
   <InputAxis>k__BackingField: {x: 0, y: 0}
   tempHeightBounds: {x: -1.5, y: -3.9}
   tempWidthBounds: {x: -8.49, y: 8.63}

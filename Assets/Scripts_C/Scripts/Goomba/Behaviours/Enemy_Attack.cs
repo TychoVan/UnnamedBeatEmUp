@@ -64,8 +64,7 @@ namespace Steering
 
 
         public void TurnOff()
-        {
-            Debug.Log("Dit doet het");
+        {            
             canTime = false;
             PH_Attack.SetActive(false);
             timeVisible = timeNumber;
