@@ -1,0 +1,690 @@
+fileFormatVersion: 2
+guid: d8b6bc7a386fbbf4b99356378ddcbd6b
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: robotbossA5_0
+      rect:
+        serializedVersion: 2
+        x: 1985
+        y: 2556
+        width: 520
+        height: 495
+      alignment: 9
+      pivot: {x: 0.5542274, y: 0.34808928}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07cd1a46bf3280f4ea043c9417b49d22
+      internalID: 1224327580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotbossA5_1
+      rect:
+        serializedVersion: 2
+        x: 2800
+        y: 2528
+        width: 684
+        height: 437
+      alignment: 9
+      pivot: {x: 0.31669787, y: 0.39343402}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f79c09204845ab4f8188d5f863f009a
+      internalID: 126131126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotbossA5_2
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 1706
+        width: 415
+        height: 548
+      alignment: 9
+      pivot: {x: 0.3519868, y: 0.3144707}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cec69e096a63a13429815e84f72238e3
+      internalID: 1973398655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotbossA5_3
+      rect:
+        serializedVersion: 2
+        x: 974
+        y: 1708
+        width: 787
+        height: 538
+      alignment: 9
+      pivot: {x: 0.68032265, y: 0.36220396}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5d59ed056534524e8055c262658a7b8
+      internalID: 332332317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotbossA5_7
+      rect:
+        serializedVersion: 2
+        x: 4043
+        y: 2166
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aed9cbe142f08e342953a495202aadf6
+      internalID: 827908590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotbossA5_8
+      rect:
+        serializedVersion: 2
+        x: 1799
+        y: 1668
+        width: 797
+        height: 485
+      alignment: 9
+      pivot: {x: 0.64882624, y: 0.4694288}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ac0a2eb0fb47884f8fc78650e43ca54
+      internalID: -1908822837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotbossA5_10
+      rect:
+        serializedVersion: 2
+        x: 2694
+        y: 1509
+        width: 812
+        height: 638
+      alignment: 9
+      pivot: {x: 0.53912413, y: 0.5970987}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aeef13a3159d8334d8adc0cb1383294f
+      internalID: -777846685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotbossA5_12
+      rect:
+        serializedVersion: 2
+        x: 3695
+        y: 1457
+        width: 453
+        height: 696
+      alignment: 9
+      pivot: {x: 0.5135716, y: 0.6148271}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69ebfd80ca5ebea478705b8f77a251cd
+      internalID: -2054375074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotbossA5_13
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 849
+        width: 586
+        height: 442
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d841f2c264dbcd04eb6a7232c6fd1c4a
+      internalID: 1139777685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotbossA5_14
+      rect:
+        serializedVersion: 2
+        x: 1314
+        y: 849
+        width: 339
+        height: 467
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b601464650ac00c44b9b85c3c2484370
+      internalID: 1139727730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotbossA5_15
+      rect:
+        serializedVersion: 2
+        x: 2063
+        y: 849
+        width: 533
+        height: 477
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccbc4c5c46e40ba459651cf9d247131e
+      internalID: 1863675972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotbossA5_17
+      rect:
+        serializedVersion: 2
+        x: 2887
+        y: 849
+        width: 517
+        height: 502
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86435d71d08d15c4a817ff5eddb14379
+      internalID: -986909870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotbossA5_18
+      rect:
+        serializedVersion: 2
+        x: 3813
+        y: 843
+        width: 398
+        height: 478
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77913c0da6257444db89f13f10d5ab15
+      internalID: -2545135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotbossA5_20
+      rect:
+        serializedVersion: 2
+        x: 4590
+        y: 854
+        width: 453
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc9c9abb3bda25a49a9d68f939df0ba5
+      internalID: 1850340758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotbossA5_28
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 147
+        width: 450
+        height: 525
+      alignment: 9
+      pivot: {x: 0.50571316, y: 0.32370877}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72a5e6254c62e6b47a8d4e058164b96e
+      internalID: -770004068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotbossA5_29
+      rect:
+        serializedVersion: 2
+        x: 1171
+        y: 62
+        width: 435
+        height: 543
+      alignment: 9
+      pivot: {x: 0.742316, y: 0.4337147}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac9768c92b1f1c9439730dff5272fffb
+      internalID: -63570974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotbossA5_30
+      rect:
+        serializedVersion: 2
+        x: 2008
+        y: 24
+        width: 412
+        height: 505
+      alignment: 9
+      pivot: {x: 0.70592314, y: 0.46436346}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b59e6b0e885e6a4e8e3547cd51147cf
+      internalID: 1822322628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotbossA5_31
+      rect:
+        serializedVersion: 2
+        x: 2838
+        y: 4
+        width: 427
+        height: 602
+      alignment: 9
+      pivot: {x: 0.36754084, y: 0.3590695}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 378e0b0efb8bc7e4c8e0e0aa08e1abea
+      internalID: 413987572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotbossA5_32
+      rect:
+        serializedVersion: 2
+        x: 3514
+        y: 456
+        width: 123
+        height: 146
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5cefeac955313248834998997aaabb7
+      internalID: 957260343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotbossA5_34
+      rect:
+        serializedVersion: 2
+        x: 3701
+        y: 77
+        width: 175
+        height: 115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c4745c0f02a8f247b184d5bce099083
+      internalID: -1232740322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotbossA5_35
+      rect:
+        serializedVersion: 2
+        x: 3974
+        y: 82
+        width: 244
+        height: 153
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0524763bacbb19e4d8f256fa3ae3292e
+      internalID: -1279925200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotbossA5_36
+      rect:
+        serializedVersion: 2
+        x: 4316
+        y: 91
+        width: 252
+        height: 219
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0dff0d332437a644abd5fe6585e36fbf
+      internalID: 876146824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotbossA5_37
+      rect:
+        serializedVersion: 2
+        x: 3459
+        y: 72
+        width: 55
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f115b9606c5e9574dbed75d5cf73a7d0
+      internalID: -1455440384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotbossA5_38
+      rect:
+        serializedVersion: 2
+        x: 3537
+        y: 74
+        width: 53
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a63c11ebc33d91f4f91ce04bc52c911e
+      internalID: -1407192999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      robotbossA5_7: 827908590
+      robotbossA5_16: -98915812
+      robotbossA5_6: -1389679626
+      robotbossA5_4: 1380824649
+      robotbossA5_34: -1232740322
+      robotbossA5_12: -2054375074
+      robotbossA5_38: -1407192999
+      robotbossA5_18: -2545135
+      robotbossA5_19: 1493475341
+      robotbossA5_27: -1581288650
+      robotbossA5_0: 1224327580
+      robotbossA5_2: 1973398655
+      robotbossA5_23: 534202237
+      robotbossA5_15: 1863675972
+      robotbossA5_20: 1850340758
+      robotbossA5_26: -1847450002
+      robotbossA5_31: 413987572
+      robotbossA5_33: 1883587887
+      robotbossA5_9: -1440252916
+      robotbossA5_25: -1888685357
+      robotbossA5_1: 126131126
+      robotbossA5_14: 1139727730
+      robotbossA5_29: -63570974
+      robotbossA5_22: 891900474
+      robotbossA5_37: -1455440384
+      robotbossA5_5: 2050191486
+      robotbossA5_28: -770004068
+      robotbossA5_11: -472977296
+      robotbossA5_32: 957260343
+      robotbossA5_10: -777846685
+      robotbossA5_24: -1381762653
+      robotbossA5_13: 1139777685
+      robotbossA5_35: -1279925200
+      robotbossA5_17: -986909870
+      robotbossA5_3: 332332317
+      robotbossA5_30: 1822322628
+      robotbossA5_8: -1908822837
+      robotbossA5_21: -1178099823
+      robotbossA5_36: 876146824
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
