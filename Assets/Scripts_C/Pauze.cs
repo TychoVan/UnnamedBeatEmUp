@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Pauze : MonoBehaviour
 {
     public bool gameIsPaused;
     public GameObject pauseMenuUI;
-    public Animation vignetteanim;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -15,7 +15,6 @@ public class Pauze : MonoBehaviour
             if (gameIsPaused)
             {
                 Resume();
-                vignetteanim.Play();
             }
             else
             {
@@ -36,5 +35,10 @@ public class Pauze : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         gameIsPaused = true;
+    }
+
+    public void ChangeScene(string scene)
+    {
+        SceneManager.LoadScene(scene);
     }
 }

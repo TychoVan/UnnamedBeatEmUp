@@ -13,15 +13,14 @@ public class DashAttack : MonoBehaviour
     public int attackCount = 0;
     public float attackReset;
 
+    
     [Header("Positions")]
     public float X;
     public float Y;
 
-    public void Start()
-    {
-       
-    }
-    
+    public float xMin, xMax;
+    public float yMin, yMax;
+     
     public void Update()
     {
            // sets
@@ -57,8 +56,8 @@ public class DashAttack : MonoBehaviour
         for(int i = 0; i < dashpositions.Length; i++)
         {
             //random position between - and + x and y coordinates
-            X = Random.Range(-8, 8);
-            Y = Random.Range(-4, 4);
+            X = Random.Range(xMin, xMax);
+            Y = Random.Range(yMin, yMax);
 
             // sets the spawn pos, and places checkpoint in their right slot
             Vector3 spawnpos = new Vector3(X, Y, 0);
