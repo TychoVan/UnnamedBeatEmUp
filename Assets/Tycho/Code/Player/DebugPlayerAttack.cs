@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Player
 {
-    public class TempPlayerAttack : MonoBehaviour
+    public class DebugPlayerAttack : MonoBehaviour
     {
         [SerializeField, Tooltip("Amount of damage dealt to the enemy")] 
         private int    damageAmount            = 3;
@@ -42,7 +42,7 @@ namespace Player
         private void OnTriggerEnter2D(Collider2D other)
         {
             otherHealthScript = other.gameObject.GetComponent<I_Damagable>();
-            tempOtherObject   = other.gameObject.GetComponent<SpriteRenderer>();
+            tempOtherObject = other.gameObject.GetComponent<SpriteRenderer>();
         }
 
         private void OnTriggerExit2D(Collider2D other)
@@ -50,21 +50,21 @@ namespace Player
             if (otherHealthScript == other.gameObject.GetComponent<I_Damagable>())
             {
                 otherHealthScript = null;
-                tempOtherObject   = null;
+                tempOtherObject = null;
             }
         }
 
 
         private IEnumerator Attack(SpriteRenderer sprite)
         {
-            canAttack    = false;
+            canAttack = false;
             otherHealthScript.ChangeHealth(-damageAmount);
             sprite.color = Color.green;
 
             yield return new WaitForSeconds(attackCooldown);
 
             sprite.color = Color.red;
-            canAttack    = true;
+            canAttack = true;
         }
     }
 }
