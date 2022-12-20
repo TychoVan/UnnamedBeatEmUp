@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -103,7 +103,175 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: animation_walk_enemy_0
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 385
+        width: 289
+        height: 328
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fba1ef95d23be649846a4c7a362b6b1
+      internalID: 1520840030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animation_walk_enemy_1
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 380
+        width: 288
+        height: 332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d803b27bd77e4424390ce014ec80db5c
+      internalID: 1361718053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animation_walk_enemy_2
+      rect:
+        serializedVersion: 2
+        x: 771
+        y: 377
+        width: 290
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f4c0421eec563c40a06b1c28eb1ce29
+      internalID: 1376232395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animation_walk_enemy_3
+      rect:
+        serializedVersion: 2
+        x: 1138
+        y: 370
+        width: 283
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 122ea1e8583313145a90d9a93db8c257
+      internalID: 858154778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animation_walk_enemy_4
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 5
+        width: 278
+        height: 348
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 517048945d57137438699ef5d4e173f5
+      internalID: -1858442682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animation_walk_enemy_5
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 5
+        width: 278
+        height: 348
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22669ab64bc43574b9e8509166430c2a
+      internalID: -362982737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animation_walk_enemy_6
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 6
+        width: 294
+        height: 346
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfef98b7d7c9d644db84567dfcd859eb
+      internalID: -1966286310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animation_walk_enemy_7
+      rect:
+        serializedVersion: 2
+        x: 1134
+        y: 7
+        width: 288
+        height: 348
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a8f0d3dad770234ebcfa44ddb308b6f
+      internalID: 803292656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -114,7 +282,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      animation_walk_enemy_3: 858154778
+      animation_walk_enemy_7: 803292656
+      animation_walk_enemy_2: 1376232395
+      animation_walk_enemy_4: -1858442682
+      animation_walk_enemy_5: -362982737
+      animation_walk_enemy_6: -1966286310
+      animation_walk_enemy_0: 1520840030
+      animation_walk_enemy_1: 1361718053
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

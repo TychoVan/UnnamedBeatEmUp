@@ -27,11 +27,7 @@ public class spikeAttack : MonoBehaviour
         if(spawned == true)
         {
             Moving();            
-        }
-        if(spawnedSpike.transform.position == playerpos)
-        {
-            Destroy(spawnedSpike);
-        }
+        }       
     }
     public void Moving()
     {
