@@ -18,6 +18,9 @@ namespace Steering
 
         public float timeBetweenAttacks = 3;
 
+        [Header("Anims")]
+        public Animator anim;
+
         public void Awake()
         {
             timeVisible = timeNumber;
@@ -31,7 +34,7 @@ namespace Steering
                 if (timeBetweenAttacks < 0)
                 {
                     PH_Attack.SetActive(true);
-
+                    anim.SetBool("IsAttacking", true);
                     if (timeVisible > 0f)
                     {
                         canTime = true;
@@ -55,8 +58,7 @@ namespace Steering
                 }
                 else if (timeVisible <= 0)
                 {
-                    TurnOff();
-                    
+                    TurnOff();                    
                 }
             
             
@@ -70,6 +72,7 @@ namespace Steering
             timeVisible = timeNumber;
             hBrain.state = HunterBrain.HunterState.pursue;
             timeBetweenAttacks = 3f;
+            anim.SetBool("IsAttacking", false);
         }
     }
 }
