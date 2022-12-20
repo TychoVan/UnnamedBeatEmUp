@@ -31,6 +31,9 @@ namespace Steering
         [Header("Attack")]
         public Enemy_Attack attackScript;
 
+        [Header("Animator")]
+        public Animator anim;
+
         private void Awake()
         {
             
@@ -106,6 +109,7 @@ namespace Steering
             List<IBehavior> behaviors = new List<IBehavior>();
             behaviors.Add(new Idle());
             m_steering.SetBehaviors(behaviors, "Idle");
+            anim.SetBool("IsWalking", false);
         }
         //approach state
         private void ToApproach()
@@ -116,6 +120,7 @@ namespace Steering
             List<IBehavior> behaviors = new List<IBehavior>();
             behaviors.Add(new Seek(target));
             m_steering.SetBehaviors(behaviors, "Approach");
+            anim.SetBool("IsWalking", true);
 
         }
         //pursue state
@@ -127,6 +132,7 @@ namespace Steering
             List<IBehavior> behaviors = new List<IBehavior>();
             behaviors.Add(new Pursue(target));
             m_steering.SetBehaviors(behaviors, "Pursue");
+            anim.SetBool("IsWalking", true);
         }
         //followPath state
         private void FollowPath()
