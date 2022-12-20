@@ -77,10 +77,16 @@ namespace Player
             if (inHitPhase) {
                 // Check for hittable targets
                 Vector2 modifiedOffset = new Vector2(currentAttackData.HitOffset.x * playerMovement.LookDirection, currentAttackData.HitOffset.y);
-                Collider2D[] colliders = Physics2D.OverlapBoxAll(((Vector2)transform.position + currentAttackData.HitOffset) * modifiedOffset, 
+                //Collider2D[] colliders = Physics2D.OverlapBoxAll(((Vector2)transform.position + currentAttackData.HitOffset) * modifiedOffset, 
+                //                                                 currentAttackData.HitSize,
+                //                                                 0);
+
+                Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position + new Vector3(currentAttackData.HitOffset.x * playerMovement.LookDirection, currentAttackData.HitOffset.y, 0f),
                                                                  currentAttackData.HitSize, 
-                                                                 0f, 
+                                                                 0,
                                                                  attackLayer);
+                Debug.Log(colliders.Length);
+
 
                 // Do damage to all hittable targets
                 for (int i = 0; i < colliders.Length; i++) {
@@ -88,7 +94,7 @@ namespace Player
                     if (damageable != null && !hitTargets.Contains(damageable)){
 
                         damageable.ChangeHealth(-currentAttackData.Damage);
-                            hitTargets.Add(damageable);
+                        hitTargets.Add(damageable);
                     }
                 }
             }
