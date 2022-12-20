@@ -129,7 +129,7 @@ namespace Player{
         /// <param name="speed">Speed of the animation being played.</param>
         public void PlayAnimation(string animationType, int animationNumber, float speed)
         {
-            animator.speed = speed;
+            //animator.speed = speed;
             animator.SetInteger(animationType, animationNumber);
         }
 

@@ -10,14 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc7bbe6ffb9ebd64ebd19207d0ab6ced, type: 3}
-  m_Name: LightAttack
+  m_Name: HeavyAttack1
   m_EditorClassIdentifier: 
-  <HittableTags>k__BackingField: []
+  <InputButtonName>k__BackingField: Fire2
+  <Damage>k__BackingField: 2
   <ManaCost>k__BackingField: 2
-<<<<<<< Updated upstream
-  <AttackCooldown>k__BackingField: 1
-=======
-  <AttackCooldown>k__BackingField: 4
->>>>>>> Stashed changes
-  <DamageAmount>k__BackingField: 1
-  <AnimationTag>k__BackingField: 0
+  <HitOffset>k__BackingField: {x: 1.25, y: 0}
+  <HitSize>k__BackingField: {x: 2.71, y: 1.3}
+  <ForwardMovement>k__BackingField: 0.3
+  <GizmoHitboxColor>k__BackingField: {r: 0, g: 1, b: 1, a: 1}
+  <GizmoHitboxHitColor>k__BackingField: {r: 1, g: 0, b: 0, a: 1}

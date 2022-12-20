@@ -9,113 +9,147 @@ namespace Player
 {
     public class PlayerAttack : MonoBehaviour, I_ScoreValue
     {
-        [SerializeField] private EditorAttack[] Attacks;
-<<<<<<< Updated upstream
-        private Animator                        animator;
-=======
->>>>>>> Stashed changes
-        [SerializeField] private float          Mana;
-        [SerializeField] private float          MaxMana;
-        [SerializeField] private float          MinMana;
-        [SerializeField] private UnityEvent     OnAttack;
-<<<<<<< Updated upstream
-        private PlayerAnimations Animator;
-=======
-        private PlayerAnimations animator;
->>>>>>> Stashed changes
+        [SerializeField] private AttackData lightAttackData;
+        [SerializeField] private AttackData heavyAttackData;
+        [SerializeField] private LayerMask  attackLayer;
+
+        [Header("Mana")]
+        [SerializeField] private int        maxMana;
+        [SerializeField] private int        minMana;
+        [Tooltip("The amount of time between getting more mana in S")]
+        [SerializeField] private float      manaGainInterval;
+        [SerializeField] private int        manaGainAmount;
+
+        [Header("Debug")]
+        [SerializeField] private bool       lightAttackGizmos;
+        [SerializeField] private bool       heavyAttackGizmos;
+        [SerializeField] private int        mana;
+
+        public float UIValue    => mana;
+        public float UIMaxValue => maxMana;
+        public float UIMinValue => minMana;
+
+        // Private
+        private Animator                    animator;
+        private PlayerMovement              playerMovement;
+
+        private bool                        isInAttack;
+        private bool                        inHitPhase;
+        private AttackData                  currentAttackData;
+        private List<I_Damagable>           hitTargets = new List<I_Damagable>();
 
 
-        public float UIValue    => Mana;
 
-        public float UIMaxValue => MaxMana;
 
-        public float UIMinValue => MinMana;
+        private void Awake() {
+            mana           = maxMana;
 
-        private void Start()
-        {
-<<<<<<< Updated upstream
-            animator = this.gameObject.GetComponent<Animator>();
-=======
-            animator = this.gameObject.GetComponent<PlayerAnimations>();
->>>>>>> Stashed changes
+            playerMovement = GetComponent<PlayerMovement>();
+            animator       = GetComponent<Animator>();
 
-            for (int i = 0; i < Attacks.Length; i++) {
-                for (int j = 0; j < Attacks[i].AttackHitboxes.Length; j++) {
-                    Attacks[i].AttackScripts.Add(Attacks[i].AttackHitboxes[j].GetComponent<IAttack>());
-<<<<<<< Updated upstream
-=======
-                    Attacks[i].CanAttack = true;
->>>>>>> Stashed changes
-                }
-            }
+            StartCoroutine(GainMana());
         }
 
 
-        private void Update()
-        {
-<<<<<<< Updated upstream
-            for (int i = 0; i < Attacks.Length; i++)
-            {
-                if (Input.GetButtonDown(Attacks[i].InputButton))
-                {
-                    Attack(Attacks[i], Attacks[i].AttackData);
-=======
-            for (int i = 0; i < Attacks.Length; i++) {
-                if (Attacks[i].CanAttack) {
-                    if (Input.GetButtonDown(Attacks[i].InputButton)) {
-                        Attack(Attacks[i], Attacks[i].AttackData);
+        public void Update() {
+            #region input
+            if (Input.GetButtonDown(lightAttackData.InputButtonName)      && !isInAttack) {
+                if (mana - lightAttackData.ManaCost >= minMana) {
+                    mana -= lightAttackData.ManaCost;
+
+                    currentAttackData = lightAttackData;
+                    isInAttack        = true;
+                    animator.SetTrigger("Light Attack");
+                }
+            }
+            else if (Input.GetButtonDown(heavyAttackData.InputButtonName) && !isInAttack) {
+                if (mana - heavyAttackData.ManaCost >= minMana) {
+                    mana -= heavyAttackData.ManaCost;
+
+                    currentAttackData = heavyAttackData;
+                    isInAttack = true;
+                    animator.SetTrigger("Heavy Attack");
+                }
+            }
+            #endregion
+
+            // Damaging
+            if (inHitPhase) {
+                // Check for hittable targets
+                Vector2 modifiedOffset = new Vector2(currentAttackData.HitOffset.x * playerMovement.LookDirection, currentAttackData.HitOffset.y);
+                Collider2D[] colliders = Physics2D.OverlapBoxAll(((Vector2)transform.position + currentAttackData.HitOffset) * modifiedOffset, 
+                                                                 currentAttackData.HitSize, 
+                                                                 0f, 
+                                                                 attackLayer);
+
+                // Do damage to all hittable targets
+                for (int i = 0; i < colliders.Length; i++) {
+                    I_Damagable damageable = colliders[i].GetComponent<I_Damagable>();
+                    if (damageable != null && !hitTargets.Contains(damageable)){
+
+                        damageable.ChangeHealth(-currentAttackData.Damage);
+                            hitTargets.Add(damageable);
                     }
->>>>>>> Stashed changes
                 }
             }
+
+            // Move while attacking
+            if (isInAttack) transform.Translate(Vector2.right * playerMovement.LookDirection * currentAttackData.ForwardMovement * Time.deltaTime);
         }
 
-       
-        private void Attack(EditorAttack attack, AttackData attackData)
+
+        #region animation events
+        public void HandleStartHit() {
+            inHitPhase = true;
+        }
+
+
+        public void HandleEndHit() {
+            inHitPhase = false;
+        }
+
+
+        public void HandleEndAttackAnimationEvent() {
+            // Reset all temporary attack data
+            isInAttack        = false;
+            currentAttackData = null;
+            hitTargets.Clear();
+        }
+        #endregion
+
+
+        private IEnumerator GainMana() {
+            // Gain mana on interval
+            while (manaGainAmount > 0 && manaGainInterval > 0) {
+                yield return new WaitForSeconds(manaGainInterval);
+                mana = Mathf.Clamp(mana + manaGainAmount, minMana, maxMana);
+            }
+        }
+
+
+#if UNITY_EDITOR
+        private void OnDrawGizmos()
         {
-<<<<<<< Updated upstream
-            if (Mana - attackData.ManaCost >= MinMana)
-            {
-                Mana = Mathf.Clamp(Mana - attackData.ManaCost, MinMana, MaxMana);
+            if (playerMovement == null) return;
 
-                OnAttack.Invoke();
-                animator.SetInteger("AnimationState", attackData.AnimationTag);
-=======
-            attack.CanAttack = false;
+            // Light attack
+            if (lightAttackGizmos) {
+                if (inHitPhase && currentAttackData == lightAttackData) Gizmos.color = lightAttackData.GizmoHitboxHitColor;
+                else                                                    Gizmos.color = lightAttackData.GizmoHitboxColor;
 
-            if (Mana - attackData.ManaCost >= MinMana) {
-                Mana = Mathf.Clamp(Mana - attackData.ManaCost, MinMana, MaxMana);
-
-                OnAttack.Invoke();
-                animator.PlayAnimation("AnimationState", attackData.AnimationTag, 1);
->>>>>>> Stashed changes
-
-                // Activate the attack objects.
-                for (int j = 0; j < attack.AttackHitboxes.Length; j++){
-                    attack.AttackHitboxes[j].SetActive(true);
-                    attack.AttackScripts[j].Attack(attack.AttackData.HittableTags);
-                }
-<<<<<<< Updated upstream
+                Gizmos.DrawWireCube(transform.position + new Vector3(lightAttackData.HitOffset.x * playerMovement.LookDirection, lightAttackData.HitOffset.y, 0f), 
+                                    lightAttackData.HitSize);
             }
 
-        }
-=======
+            //Heavy attack
+            if (heavyAttackGizmos) {
+                if (inHitPhase && currentAttackData == heavyAttackData) Gizmos.color = heavyAttackData.GizmoHitboxHitColor;
+                else Gizmos.color = heavyAttackData.GizmoHitboxColor;
 
-                StartCoroutine(CooldownTimer(attack));
+                Gizmos.DrawWireCube(transform.position + new Vector3(heavyAttackData.HitOffset.x * playerMovement.LookDirection, heavyAttackData.HitOffset.y, 0f),
+                                    heavyAttackData.HitSize);
             }
-
         }
-
-
-        private IEnumerator CooldownTimer(EditorAttack attack)
-        {
-            attack.CurrentCooldown = attack.AttackData.AttackCooldown;
-            while (attack.CurrentCooldown > 0) {
-                attack.CurrentCooldown = Mathf.Clamp(attack.CurrentCooldown, 0, attack.AttackData.AttackCooldown);
-                yield return new WaitForEndOfFrame();
-            }
-            attack.CanAttack = true;
-        }
->>>>>>> Stashed changes
+#endif
     }
 }

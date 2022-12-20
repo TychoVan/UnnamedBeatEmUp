@@ -37,10 +37,14 @@ namespace Player
         public bool               canMove;
         [SerializeField] private bool               canJump;
         private PlayerAnimations                    animator;
+        private Animator unityAnimator;
 
+        public int LookDirection { get; private set; } = 1;
 
-
-
+        private void Awake()
+        {
+            unityAnimator = GetComponent<Animator>();
+        }
         private void Start()
         {
             animator = this.gameObject.GetComponent<PlayerAnimations>();
@@ -54,7 +58,10 @@ namespace Player
             // Get walking input
             InputAxis = new Vector2(Input.GetAxisRaw("Horizontal"),
                                     Input.GetAxisRaw("Vertical"));
-
+            if (InputAxis.x != 0f)
+            {
+                LookDirection = InputAxis.x > 0 ? 1 : -1;
+            }
             // Get jump input.
             if (canJump)
             {
@@ -93,20 +100,25 @@ namespace Player
 
 
             if (canMove) {
-                if (InputAxis.x != 0 || InputAxis.y != 0) {
+                if (!unityAnimator.GetCurrentAnimatorStateInfo(0).IsName("Light Attack") && !unityAnimator.GetCurrentAnimatorStateInfo(0).IsName("Heavy Attack"))
+                {
+                    if (InputAxis.x != 0 || InputAxis.y != 0)
+                    {
 
-                    // Move left.
-                    if (InputAxis.x < 0 && canMoveLeft)  transform.position += (new Vector3(InputAxis.x * xMovementSpeed, 0, 0) * Time.deltaTime);
+                        // Move left.
+                        if (InputAxis.x < 0 && canMoveLeft) transform.position += (new Vector3(InputAxis.x * xMovementSpeed, 0, 0) * Time.deltaTime);
 
-                    // Move Right.
-                    if (InputAxis.x > 0 && canMoveRight) transform.position += (new Vector3(InputAxis.x * xMovementSpeed, 0, 0) * Time.deltaTime);
+                        // Move Right.
+                        if (InputAxis.x > 0 && canMoveRight) transform.position += (new Vector3(InputAxis.x * xMovementSpeed, 0, 0) * Time.deltaTime);
 
-                    // Move Up.
-                    if (InputAxis.y > 0 && canMoveUp)    transform.position += (new Vector3(0, InputAxis.y * yMovementSpeed, 0) * Time.deltaTime);
+                        // Move Up.
+                        if (InputAxis.y > 0 && canMoveUp) transform.position += (new Vector3(0, InputAxis.y * yMovementSpeed, 0) * Time.deltaTime);
 
-                    // Move Down.
-                    if (InputAxis.y < 0 && canMoveDown)  transform.position += (new Vector3(0, InputAxis.y * yMovementSpeed, 0) * Time.deltaTime);
+                        // Move Down.
+                        if (InputAxis.y < 0 && canMoveDown) transform.position += (new Vector3(0, InputAxis.y * yMovementSpeed, 0) * Time.deltaTime);
+                    }
                 }
+                
             }
             #endregion
         }
