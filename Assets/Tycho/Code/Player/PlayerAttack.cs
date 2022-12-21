@@ -63,7 +63,7 @@ namespace Player
                         isInAttack             = true;
                         playerMovement.canMove = false;
 
-                        animator.SetTrigger("Light Attack");
+                        animator?.SetTrigger("Light Attack");
                     }
                 }
                 else if (Input.GetButtonDown(heavyAttackData.InputButtonName) && !isInAttack) {
@@ -74,7 +74,7 @@ namespace Player
                         isInAttack             = true;
                         playerMovement.canMove = false;
 
-                        animator.SetTrigger("Heavy Attack");
+                        animator?.SetTrigger("Heavy Attack");
                     }
                 }
             }
