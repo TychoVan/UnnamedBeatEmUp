@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TempEnemyAttack : MonoBehaviour
 {
-    private int damageAmount = 3;
+    private int damageAmount = 1;
 
     private I_Damagable otherHealthScript;
     private SpriteRenderer tempOtherObject;
@@ -31,7 +31,7 @@ public class TempEnemyAttack : MonoBehaviour
     {
         canAttack = false;
         otherHealthScript.ChangeHealth(-damageAmount);
-        sprite.color = Color.blue;
+        //sprite.color = Color.blue;
     }
 
     private void OnDisable()

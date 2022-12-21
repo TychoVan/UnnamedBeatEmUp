@@ -25,6 +25,7 @@ namespace Player
         private Animator                        animator;
         private SpriteRenderer                  spriteRenderer;
         private PlayerMovement                  playerMovement;
+        private PlayerAttack                    playerAttack;
 
 
         public float                            UIValue             => Health;
@@ -37,6 +38,7 @@ namespace Player
             Health         = startHealth;
             animator       = GetComponent<Animator>();
             spriteRenderer = GetComponent<SpriteRenderer>();
+            playerAttack   = GetComponent<PlayerAttack>();
             playerMovement = GetComponent<PlayerMovement>();
         }
 
@@ -55,6 +57,9 @@ namespace Player
 
         private IEnumerator HandleTakeDamage(int amount)
         {
+            // Reset all temporary attack data
+            playerAttack?.ClearData();
+
             takingDamage           = true;
             playerMovement.canMove = false;
 

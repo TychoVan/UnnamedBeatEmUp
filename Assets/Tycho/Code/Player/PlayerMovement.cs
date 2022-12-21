@@ -65,7 +65,7 @@ namespace Player
 
             #region Animation
             // Trigger walking animation and set its speed
-            animator.SetBool ("Walking",       InputAxis.x == 0 ? false : true);
+            animator.SetBool ("Walking",       InputAxis.x == 0  ? (InputAxis.y == 0 ? false: true) : true);
             animator.SetFloat("Walking Speed", xWalkSpeed);
 
             // Set rotation

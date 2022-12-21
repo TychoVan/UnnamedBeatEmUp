@@ -12,6 +12,7 @@ namespace Player
         [SerializeField] private AttackData lightAttackData;
         [SerializeField] private AttackData heavyAttackData;
         [SerializeField] private LayerMask  attackLayer;
+        [SerializeField] private UnityEvent OnAttack;
 
         [Header("Mana")]
         [SerializeField] private int        maxMana;
@@ -63,6 +64,7 @@ namespace Player
                         isInAttack             = true;
                         playerMovement.canMove = false;
 
+                        OnAttack.Invoke();
                         animator?.SetTrigger("Light Attack");
                     }
                 }
@@ -74,6 +76,7 @@ namespace Player
                         isInAttack             = true;
                         playerMovement.canMove = false;
 
+                        OnAttack.Invoke();
                         animator?.SetTrigger("Heavy Attack");
                     }
                 }
@@ -120,9 +123,13 @@ namespace Player
 
 
         public void HandleEndAttackAnimationEvent() {
+            ClearData();
+            playerMovement.canMove = true;
+        }
+
+        public void ClearData() {
             // Reset all temporary attack data
             isInAttack        = false;
-            playerMovement.canMove = true;
             currentAttackData = null;
             hitTargets.Clear();
         }
