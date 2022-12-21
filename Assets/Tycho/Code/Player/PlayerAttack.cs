@@ -53,22 +53,29 @@ namespace Player
 
         public void Update() {
             #region input
-            if (Input.GetButtonDown(lightAttackData.InputButtonName)      && !isInAttack) {
-                if (mana - lightAttackData.ManaCost >= minMana) {
-                    mana -= lightAttackData.ManaCost;
+            if (playerMovement.canMove == true)
+            {
+                if (Input.GetButtonDown(lightAttackData.InputButtonName)      && !isInAttack) {
+                    if (mana - lightAttackData.ManaCost >= minMana) {
+                        mana -= lightAttackData.ManaCost;
 
-                    currentAttackData = lightAttackData;
-                    isInAttack        = true;
-                    animator.SetTrigger("Light Attack");
+                        currentAttackData      = lightAttackData;
+                        isInAttack             = true;
+                        playerMovement.canMove = false;
+
+                        animator.SetTrigger("Light Attack");
+                    }
                 }
-            }
-            else if (Input.GetButtonDown(heavyAttackData.InputButtonName) && !isInAttack) {
-                if (mana - heavyAttackData.ManaCost >= minMana) {
-                    mana -= heavyAttackData.ManaCost;
+                else if (Input.GetButtonDown(heavyAttackData.InputButtonName) && !isInAttack) {
+                    if (mana - heavyAttackData.ManaCost >= minMana) {
+                        mana -= heavyAttackData.ManaCost;
 
-                    currentAttackData = heavyAttackData;
-                    isInAttack = true;
-                    animator.SetTrigger("Heavy Attack");
+                        currentAttackData      = heavyAttackData;
+                        isInAttack             = true;
+                        playerMovement.canMove = false;
+
+                        animator.SetTrigger("Heavy Attack");
+                    }
                 }
             }
             #endregion
@@ -77,15 +84,12 @@ namespace Player
             if (inHitPhase) {
                 // Check for hittable targets
                 Vector2 modifiedOffset = new Vector2(currentAttackData.HitOffset.x * playerMovement.LookDirection, currentAttackData.HitOffset.y);
-                //Collider2D[] colliders = Physics2D.OverlapBoxAll(((Vector2)transform.position + currentAttackData.HitOffset) * modifiedOffset, 
-                //                                                 currentAttackData.HitSize,
-                //                                                 0);
 
-                Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position + new Vector3(currentAttackData.HitOffset.x * playerMovement.LookDirection, currentAttackData.HitOffset.y, 0f),
+
+                Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position + new Vector3(modifiedOffset.x, modifiedOffset.y, 0f),
                                                                  currentAttackData.HitSize, 
                                                                  0,
                                                                  attackLayer);
-                Debug.Log(colliders.Length);
 
 
                 // Do damage to all hittable targets
@@ -118,6 +122,7 @@ namespace Player
         public void HandleEndAttackAnimationEvent() {
             // Reset all temporary attack data
             isInAttack        = false;
+            playerMovement.canMove = true;
             currentAttackData = null;
             hitTargets.Clear();
         }
