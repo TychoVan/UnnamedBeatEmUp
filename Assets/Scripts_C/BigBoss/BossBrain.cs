@@ -20,6 +20,8 @@ public class BossBrain : MonoBehaviour
     public float resetTime;
     public float TimeBetweenAttacks;
 
+    
+
     public void Update()
     {
         if(TimeBetweenAttacks > 0)

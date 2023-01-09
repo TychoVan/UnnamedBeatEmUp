@@ -20,7 +20,10 @@ public class DashAttack : MonoBehaviour
 
     public float xMin, xMax;
     public float yMin, yMax;
-     
+
+    [Header("Animation")]
+    public Animator anim;
+
     public void Update()
     {
            // sets
@@ -40,6 +43,7 @@ public class DashAttack : MonoBehaviour
             Destroy(dashpositions[0]);
             Destroy(dashpositions[1]);
             Destroy(dashpositions[2]);
+            anim.SetBool("Dash", false);
         }
     }
     public void Dashing()
@@ -52,6 +56,7 @@ public class DashAttack : MonoBehaviour
     }
     public void spawnPoints()
     {
+        anim.SetBool("Dash", true);
         attackCount = 0;
         for(int i = 0; i < dashpositions.Length; i++)
         {
