@@ -7,8 +7,8 @@ namespace Player
     public class PlayerMovement : MonoBehaviour
     {
         [Header("Movement")]
-        [SerializeField] private float              yMovementSpeed;
-        [field: SerializeField] public float        xMovementSpeed { get; private set; }
+        [SerializeField] private float              yWalkSpeed;
+        [SerializeField] private float              xWalkSpeed;
         [field: SerializeField] public Vector2      InputAxis       { get; private set; }
 
 
@@ -31,20 +31,20 @@ namespace Player
         [SerializeField] private AnimationCurve     accelerationUp;
         [SerializeField] private AnimationCurve     accelerationDown;
         [SerializeField] private float              horizontalVelocity;
+        [SerializeField] private float              movingJumpHeight;
 
 
         [Header("Debug")]
-        [SerializeField] private bool               canMove;
-        [SerializeField] private bool               canJump;
-        private PlayerAnimations                    animator;
+        public bool                                 canMove;
+        private Animator                            animator;
+        private Vector3                             startLocalScale;
 
+        public int LookDirection { get; private set; } = 1;
 
-
-
-        private void Start()
+        private void Awake()
         {
-            animator = this.gameObject.GetComponent<PlayerAnimations>();
-            canJump  = true;
+            animator        = GetComponent<Animator>();
+            startLocalScale = transform.localScale;
         }
 
 
@@ -56,9 +56,23 @@ namespace Player
                                     Input.GetAxisRaw("Vertical"));
 
             // Get jump input.
-            if (canJump)
+            if (canMove)
             {
                 if (Input.GetButtonDown("Jump")) StartCoroutine(Jump(InputAxis.x));
+            }
+            #endregion
+
+
+            #region Animation
+            // Trigger walking animation and set its speed
+            animator.SetBool ("Walking",       InputAxis.x == 0  ? (InputAxis.y == 0 ? false: true) : true);
+            animator.SetFloat("Walking Speed", xWalkSpeed);
+
+            // Set rotation
+            if (InputAxis.x != 0f && canMove)
+            {
+                LookDirection = InputAxis.x > 0 ? 1 : -1;
+                transform.localScale = new Vector3(startLocalScale.x * LookDirection, transform.localScale.y, transform.localScale.z);
             }
             #endregion
 
@@ -93,20 +107,24 @@ namespace Player
 
 
             if (canMove) {
-                if (InputAxis.x != 0 || InputAxis.y != 0) {
+               
+                    if (InputAxis.x != 0 || InputAxis.y != 0)
+                    {
 
-                    // Move left.
-                    if (InputAxis.x < 0 && canMoveLeft)  transform.position += (new Vector3(InputAxis.x * xMovementSpeed, 0, 0) * Time.deltaTime);
+                        // Move left.
+                        if (InputAxis.x < 0 && canMoveLeft) transform.position += (new Vector3(InputAxis.x * xWalkSpeed, 0, 0) * Time.deltaTime);
 
-                    // Move Right.
-                    if (InputAxis.x > 0 && canMoveRight) transform.position += (new Vector3(InputAxis.x * xMovementSpeed, 0, 0) * Time.deltaTime);
+                        // Move Right.
+                        if (InputAxis.x > 0 && canMoveRight) transform.position += (new Vector3(InputAxis.x * xWalkSpeed, 0, 0) * Time.deltaTime);
 
-                    // Move Up.
-                    if (InputAxis.y > 0 && canMoveUp)    transform.position += (new Vector3(0, InputAxis.y * yMovementSpeed, 0) * Time.deltaTime);
+                        // Move Up.
+                        if (InputAxis.y > 0 && canMoveUp) transform.position += (new Vector3(0, InputAxis.y * yWalkSpeed, 0) * Time.deltaTime);
 
-                    // Move Down.
-                    if (InputAxis.y < 0 && canMoveDown)  transform.position += (new Vector3(0, InputAxis.y * yMovementSpeed, 0) * Time.deltaTime);
-                }
+                        // Move Down.
+                        if (InputAxis.y < 0 && canMoveDown) transform.position += (new Vector3(0, InputAxis.y * yWalkSpeed, 0) * Time.deltaTime);
+                    }
+                
+                
             }
             #endregion
         }
@@ -115,46 +133,49 @@ namespace Player
         private IEnumerator Jump(float direction)
         {
             // Lock movement.
-            canMove = false;
-            canJump = false;
+            canMove             = false;
 
-            float startHeight = transform.position.y;
 
-            // Snap the direction to an absolute.
-                 if (direction < 0) direction = -1;
-            else if (direction > 0) direction =  1;
+            float startHeight   = transform.position.y;
+            direction           = direction == 0 ? 0 : LookDirection; 
+
+
+            // Set jumpheight according to direction
+            float               modifiedJumpHeight;
+            if (direction == 0) modifiedJumpHeight = jumpHeight;
+            else                modifiedJumpHeight = movingJumpHeight;
 
 
             //Set player animation.
-            if (animator) animator.SetJumpState(Jumpstate.jumping);
+            animator.SetTrigger("Jump");
 
 
             // Move up.
-            while (transform.position.y < startHeight + jumpHeight) {
+            while (transform.position.y < startHeight + modifiedJumpHeight) {
                 transform.position += (new Vector3(direction * horizontalVelocity,
-                                                   accelerationUp.Evaluate((transform.position.y - startHeight) / jumpHeight) * JumpForce,
+                                                   accelerationUp.Evaluate((transform.position.y - startHeight) / modifiedJumpHeight) * JumpForce,
                                                    0) * Time.deltaTime);
 
                 // Clamp position.
-                transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, startHeight, startHeight + jumpHeight), transform.position.z);
+                transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, startHeight, startHeight + modifiedJumpHeight), transform.position.z);
 
                 yield return new WaitForEndOfFrame();
             }
 
 
             //Set player animation.
-            if (animator) animator.SetJumpState(Jumpstate.falling);
+            animator.SetTrigger("Fall");
 
 
             // Move down
             while (transform.position.y > startHeight)
             {
                 transform.position += (new Vector3(direction* horizontalVelocity,
-                                                   -accelerationDown.Evaluate(1 - (transform.position.y - startHeight) / jumpHeight) * gravity,
+                                                   -accelerationDown.Evaluate(1 - (transform.position.y - startHeight) / modifiedJumpHeight) * gravity,
                                                     0) * Time.deltaTime);
 
                 // Clamp position.
-                transform.position  = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, startHeight, startHeight + jumpHeight), transform.position.z);
+                transform.position  = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, startHeight, startHeight + modifiedJumpHeight), transform.position.z);
 
                 yield return new WaitForEndOfFrame();
             }
@@ -162,14 +183,11 @@ namespace Player
             //Set player animation.
             if (animator)
             {
-                animator.SetJumpState(Jumpstate.landing);
-                yield return new WaitForSeconds(animator.LandingDuration());
-                animator.SetJumpState(Jumpstate.grounded);
+                animator.SetTrigger("Land");
             }
 
 
             // Unlock movement.
-            canJump = true;
             canMove = true;
         }
     }
