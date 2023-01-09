@@ -12,27 +12,43 @@ public class spikeAttack : MonoBehaviour
 
     public Vector3 playerpos;
     
+    [Header("Times")]
+    public float Reset;
+    public float DespawnTime;
+    public bool allowtime = false;
 
     public float spikeSpeed;
     public float movespeed;
     
+
+    [Header("Animation")]
+    public Animator anim;
+
     public void CallSpike()
     {
         spawnedSpike = Instantiate(bigSpike, transform.position, transform.rotation);
         spawned = true;
         playerpos = player.transform.position;
+        anim.SetBool("GSlash", true);
+        allowtime = true;
     }
     public void Update()
     {
         if(spawned == true)
         {
             Moving();            
-        }       
+        }
+
+       
     }
     public void Moving()
     {
         spawnedSpike.transform.position = Vector3.Lerp(spawnedSpike.transform.position, playerpos, spikeSpeed);
 
+    }
+    public void SetFalse()
+    {
+        anim.SetBool("GSlash", false);
     }
    
 }

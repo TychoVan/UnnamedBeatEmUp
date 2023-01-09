@@ -548,6 +548,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a754d5d7f49ca2c4e894dca46f50b619, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1048093950 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 975105336134362798, guid: b8e5398f3667c5746a3e3e8f1358f9a7, type: 3}
+  m_PrefabInstance: {fileID: 463455929}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1115830140
 GameObject:
   m_ObjectHideFlags: 0
@@ -564,6 +569,7 @@ GameObject:
   - component: {fileID: 1115830146}
   - component: {fileID: 1115830147}
   - component: {fileID: 1115830148}
+  - component: {fileID: 1115830149}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -600,6 +606,7 @@ MonoBehaviour:
   xMax: 8
   yMin: -4
   yMax: 4
+  anim: {fileID: 1115830148}
 --- !u!212 &1115830142
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -685,8 +692,12 @@ MonoBehaviour:
   player: {fileID: 1048093933}
   perc: 0
   playerpos: {x: 0, y: 0, z: 0}
+  Reset: 2
+  DespawnTime: 2
+  allowtime: 0
   spikeSpeed: 0.005
   movespeed: 0.003
+  anim: {fileID: 1115830148}
 --- !u!114 &1115830145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -718,7 +729,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Health>k__BackingField: 0
-  startHealth: 25
+  startHealth: 15
   maxHealth: 10
   healthPickUp: {fileID: 0}
   timer: 1
@@ -758,6 +769,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1115830149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115830140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 482b57ac57652814fa4f7040623f743a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rend: {fileID: 1115830142}
+  playerpos: {fileID: 1048093950}
 --- !u!1 &1142867333
 GameObject:
   m_ObjectHideFlags: 0

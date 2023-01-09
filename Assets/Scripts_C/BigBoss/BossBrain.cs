@@ -37,7 +37,7 @@ public class BossBrain : MonoBehaviour
 
     public void ChooseAttack()
     {
-        randomATK = Random.RandomRange(1, 3);
+        randomATK = Random.Range(1, 3);
         if(randomATK == 1)
         {
             state = bossState.DashAttack;
