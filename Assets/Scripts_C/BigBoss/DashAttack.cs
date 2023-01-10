@@ -12,6 +12,8 @@ public class DashAttack : MonoBehaviour
     public bool AllowCount = false;
     public int attackCount = 0;
     public float attackReset;
+  
+    
 
     
     [Header("Positions")]
@@ -50,7 +52,7 @@ public class DashAttack : MonoBehaviour
     {
         //code for dashing
         if (AllowDash)
-        {
+        {           
             transform.position = Vector3.Lerp(transform.position, dashpositions[attackCount].transform.position, speed);
         }       
     }
