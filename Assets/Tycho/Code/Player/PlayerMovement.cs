@@ -162,18 +162,20 @@ namespace Player
             // Lock movement.
             canMove             = false;
 
-
-            // Set jumpheight according to direction
             float startHeight   = transform.position.y;
 
+            // Set jumpheight according to direction
             RaycastHit2D maxJumpDist = Physics2D.Raycast(pointE, pointF - pointE, distanceToCheckTop + distanceToCheckBottom);
-            direction                = direction == 0 ? 
+
+            // if there is a block in the way dont jump sideways
+            direction = direction == 0 ?             
                 0 : 
                 LookDirection = maxJumpDist ? 
                     maxJumpDist.transform.gameObject.layer == walkLayer ? 
                         LookDirection 
                         : 0 
                     : 0;
+
             float modifiedJumpHeight = direction == 0 ? jumpHeight : movingJumpHeight;
 
 
