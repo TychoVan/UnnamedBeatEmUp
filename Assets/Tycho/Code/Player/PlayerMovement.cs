@@ -13,16 +13,23 @@ namespace Player
 
 
         [Header("RayChecks")]
-        [SerializeField] private Vector2            tempHeightBounds;
-        [SerializeField] private Vector2            tempWidthBounds;
-
-
         [SerializeField] private LayerMask          Walkable;
+        private                  int                walkLayer;
 
         [SerializeField] private float              distanceToCheckTop;
         [SerializeField] private float              distanceToCheckBottom;
         [SerializeField] private float              distanceToCheckLeft;
         [SerializeField] private float              distanceToCheckRight;
+
+        [SerializeField] private bool               drawRaycheckGizmos;
+        [field: SerializeField] public bool InBounds { get; private set; }
+
+        private Vector2 pointA;
+        private Vector2 pointB;
+        private Vector2 pointC;
+        private Vector2 pointD;
+        private Vector2 pointE;
+        private Vector2 pointF;
 
         [Header("Jump settings")]
         [SerializeField] private float              jumpHeight;
@@ -31,7 +38,9 @@ namespace Player
         [SerializeField] private AnimationCurve     accelerationUp;
         [SerializeField] private AnimationCurve     accelerationDown;
         [SerializeField] private float              horizontalVelocity;
+        [SerializeField] private float              maxHorizontalMovement;
         [SerializeField] private float              movingJumpHeight;
+
 
 
         [Header("Debug")]
@@ -50,6 +59,8 @@ namespace Player
 
         private void Update()
         {
+            float walkLayer = Mathf.Log(Walkable.value, 2);
+
             #region input
             // Get walking input
             InputAxis = new Vector2(Input.GetAxisRaw("Horizontal"),
@@ -78,50 +89,66 @@ namespace Player
 
 
             #region CollisionDetection
-            bool canMoveLeft  = true;
-            bool canMoveRight = true;
-            bool canMoveUp    = true;
-            bool canMoveDown  = true;
+            bool canMoveLeft;
+            bool canMoveRight;
+            bool canMoveUp;
+            bool canMoveDown;
 
-            RaycastHit2D raycastLeft   = Physics2D.Raycast(transform.position, Vector2.left,  distanceToCheckLeft);
-            RaycastHit2D raycastRight  = Physics2D.Raycast(transform.position, Vector2.right, distanceToCheckRight);
-            RaycastHit2D raycastBottom = Physics2D.Raycast(transform.position, Vector2.down,  distanceToCheckBottom);
-            RaycastHit2D raycastTop    = Physics2D.Raycast(transform.position, Vector2.up,    distanceToCheckTop);
+            pointA = new Vector2(transform.position.x - distanceToCheckLeft,  transform.position.y + distanceToCheckTop);
+            pointB = new Vector2(transform.position.x + distanceToCheckRight, transform.position.y + distanceToCheckTop);
+            pointC = new Vector2(transform.position.x + distanceToCheckRight, transform.position.y - distanceToCheckBottom);
+            pointD = new Vector2(transform.position.x - distanceToCheckLeft,  transform.position.y - distanceToCheckBottom);
+
+            pointE  = new Vector2(transform.position.x  + (distanceToCheckRight + maxHorizontalMovement * LookDirection), transform.position.y + distanceToCheckTop);
+            pointF  = new Vector2(transform.position.x +  (distanceToCheckRight + maxHorizontalMovement * LookDirection), transform.position.y - distanceToCheckBottom);
+
+            //Debug.Log("Start: " + (pointB) + "|| Direction: " + (pointC - pointB) + "|| Distance: " + (pointC.y - pointB.y));
+            //Debug.Log("Start: " + (pointD) + "|| Direction: " + (pointA - pointD) + "|| Distance: " + (pointA.y - pointD.y));
+
+
+            RaycastHit2D raycastTop   = Physics2D.Raycast(pointA, pointB - pointA, distanceToCheckLeft + distanceToCheckRight);
+            RaycastHit2D raycastRight = Physics2D.Raycast(pointB, pointC - pointB, distanceToCheckTop  + distanceToCheckBottom);
+            RaycastHit2D raycastDown  = Physics2D.Raycast(pointC, pointD - pointC, distanceToCheckLeft + distanceToCheckRight);
+            RaycastHit2D raycastLeft  = Physics2D.Raycast(pointD, pointA - pointD, distanceToCheckTop  + distanceToCheckBottom);
+
+            //canMoveUp    = raycastTop;
+            //canMoveRight = raycastRight;
+            //canMoveDown  = raycastDown;
+            //canMoveLeft  = raycastLeft;
+
+
+            //Debug.Log(raycastTop.transform.gameObject.layer == walkLayer ? true : false);
+            //Debug.Log("Layer: " + raycastTop.transform.gameObject.layer + " Wanted: " + walkLayer);
+
+            canMoveUp    = raycastTop   ? raycastTop  .transform.gameObject.layer == walkLayer ? true : false : false;
+            canMoveRight = raycastRight ? raycastRight.transform.gameObject.layer == walkLayer ? true : false : false;
+            canMoveDown  = raycastDown  ? raycastDown .transform.gameObject.layer == walkLayer ? true : false : false;
+            canMoveLeft  = raycastLeft  ? raycastLeft .transform.gameObject.layer == walkLayer ? true : false : false;
+
+            //if (!raycastTop || !raycastRight || !raycastDown || !raycastLeft) InBounds = false;
+            //else                                                              InBounds = true;
+
+
             #endregion
 
 
             #region Movement
-
-
-
-
-            // TEMPORARY //
-            if (transform.position.y >= tempHeightBounds.x) canMoveUp    = false;
-            if (transform.position.y <= tempHeightBounds.y) canMoveDown  = false;
-            if (transform.position.x <= tempWidthBounds.x)  canMoveLeft  = false;
-            if (transform.position.x >= tempWidthBounds.y)  canMoveRight = false;
-            // TEMPORARY //
-
-
-
-
-
             if (canMove) {
                
                     if (InputAxis.x != 0 || InputAxis.y != 0)
                     {
 
                         // Move left.
-                        if (InputAxis.x < 0 && canMoveLeft) transform.position += (new Vector3(InputAxis.x * xWalkSpeed, 0, 0) * Time.deltaTime);
+                        if (InputAxis.x < 0 && canMoveLeft) transform.position  += (new Vector3(InputAxis.x * xWalkSpeed, 0, 0) * Time.deltaTime);
 
                         // Move Right.
                         if (InputAxis.x > 0 && canMoveRight) transform.position += (new Vector3(InputAxis.x * xWalkSpeed, 0, 0) * Time.deltaTime);
 
                         // Move Up.
-                        if (InputAxis.y > 0 && canMoveUp) transform.position += (new Vector3(0, InputAxis.y * yWalkSpeed, 0) * Time.deltaTime);
+                        if (InputAxis.y > 0 && canMoveUp) transform.position    += (new Vector3(0, InputAxis.y * yWalkSpeed, 0) * Time.deltaTime);
 
                         // Move Down.
-                        if (InputAxis.y < 0 && canMoveDown) transform.position += (new Vector3(0, InputAxis.y * yWalkSpeed, 0) * Time.deltaTime);
+                        if (InputAxis.y < 0 && canMoveDown) transform.position  += (new Vector3(0, InputAxis.y * yWalkSpeed, 0) * Time.deltaTime);
                     }
                 
                 
@@ -136,19 +163,23 @@ namespace Player
             canMove             = false;
 
 
-            float startHeight   = transform.position.y;
-            direction           = direction == 0 ? 0 : LookDirection; 
-
-
             // Set jumpheight according to direction
-            float               modifiedJumpHeight;
-            if (direction == 0) modifiedJumpHeight = jumpHeight;
-            else                modifiedJumpHeight = movingJumpHeight;
+            float startHeight   = transform.position.y;
+
+            RaycastHit2D maxJumpDist = Physics2D.Raycast(pointE, pointF - pointE, distanceToCheckTop + distanceToCheckBottom);
+            direction                = direction == 0 ? 
+                0 : 
+                LookDirection = maxJumpDist ? 
+                    maxJumpDist.transform.gameObject.layer == walkLayer ? 
+                        LookDirection 
+                        : 0 
+                    : 0;
+            float modifiedJumpHeight = direction == 0 ? jumpHeight : movingJumpHeight;
+
 
 
             //Set player animation.
             animator.SetTrigger("Jump");
-
 
             // Move up.
             while (transform.position.y < startHeight + modifiedJumpHeight) {
@@ -190,6 +221,24 @@ namespace Player
             // Unlock movement.
             canMove = true;
         }
+
+#if UNITY_EDITOR
+        private void OnDrawGizmos()
+        {
+            if (drawRaycheckGizmos)
+            {
+                Gizmos.color = Color.green;
+                Gizmos.DrawLine(pointA, pointB);
+                Gizmos.DrawLine(pointB, pointC);
+                Gizmos.DrawLine(pointC, pointD);
+                Gizmos.DrawLine(pointD, pointA);
+
+                Gizmos.color = Color.yellow;
+                Gizmos.DrawLine(transform.position, new Vector2(pointE.x, transform.position.y));
+                Gizmos.DrawLine(pointE, pointF);
+            }
+        }
+#endif
     }
 }
 

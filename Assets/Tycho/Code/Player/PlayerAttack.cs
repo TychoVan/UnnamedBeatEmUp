@@ -162,7 +162,7 @@ namespace Player
             //Heavy attack
             if (heavyAttackGizmos) {
                 if (inHitPhase && currentAttackData == heavyAttackData) Gizmos.color = heavyAttackData.GizmoHitboxHitColor;
-                else Gizmos.color = heavyAttackData.GizmoHitboxColor;
+                else                                                    Gizmos.color = heavyAttackData.GizmoHitboxColor;
 
                 Gizmos.DrawWireCube(transform.position + new Vector3(heavyAttackData.HitOffset.x * playerMovement.LookDirection, heavyAttackData.HitOffset.y, 0f),
                                     heavyAttackData.HitSize);
