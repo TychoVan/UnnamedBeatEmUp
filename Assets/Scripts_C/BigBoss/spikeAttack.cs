@@ -23,6 +23,9 @@ public class spikeAttack : MonoBehaviour
 
     [Header("Animation")]
     public Animator anim;
+    float timer = 2;
+    [Header("Brain")]
+    public BossBrain brain;
 
     public void CallSpike()
     {
@@ -31,12 +34,24 @@ public class spikeAttack : MonoBehaviour
         playerpos = player.transform.position;
         anim.SetBool("GSlash", true);
         allowtime = true;
+        brain.DamageOn();
+        timer = 2f;
     }
     public void Update()
     {
         if(spawned == true)
         {
             Moving();            
+        }
+
+       
+        if(timer > 0)
+        {
+            timer = timer - 1 * Time.deltaTime;
+        }
+        else
+        {
+            Destroy(spawnedSpike);
         }
 
        
@@ -49,6 +64,7 @@ public class spikeAttack : MonoBehaviour
     public void SetFalse()
     {
         anim.SetBool("GSlash", false);
+        brain.DamageOff();
     }
    
 }

@@ -26,6 +26,9 @@ public class DashAttack : MonoBehaviour
     [Header("Animation")]
     public Animator anim;
 
+    [Header("BossBrain")]
+    public BossBrain brain;
+
     public void Update()
     {
            // sets
@@ -46,6 +49,7 @@ public class DashAttack : MonoBehaviour
             Destroy(dashpositions[1]);
             Destroy(dashpositions[2]);
             anim.SetBool("Dash", false);
+            brain.DamageOff();
         }
     }
     public void Dashing()
@@ -58,6 +62,7 @@ public class DashAttack : MonoBehaviour
     }
     public void spawnPoints()
     {
+        brain.DamageOn();
         anim.SetBool("Dash", true);
         attackCount = 0;
         for(int i = 0; i < dashpositions.Length; i++)

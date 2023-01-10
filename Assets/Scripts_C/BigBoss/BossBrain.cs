@@ -20,6 +20,8 @@ public class BossBrain : MonoBehaviour
     public float resetTime;
     public float TimeBetweenAttacks;
 
+    public GameObject hitBox;
+
     
 
     public void Update()
@@ -58,5 +60,14 @@ public class BossBrain : MonoBehaviour
         {
             spikeATK.CallSpike();
         }
+    }
+
+    public void DamageOn()
+    {
+        hitBox.SetActive(true);
+    }
+    public void DamageOff()
+    {
+        hitBox.SetActive(false);
     }
 }
