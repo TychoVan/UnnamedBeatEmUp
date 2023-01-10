@@ -51,6 +51,7 @@ public class spikeAttack : MonoBehaviour
         }
         else
         {
+            spawned = false;
             Destroy(spawnedSpike);
         }
 

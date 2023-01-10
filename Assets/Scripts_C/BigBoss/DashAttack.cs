@@ -38,9 +38,9 @@ public class DashAttack : MonoBehaviour
             attackTimer = attackTimer - 1 * Time.deltaTime;
         }
         else if(attackTimer < 0)
-        {            
-            attackTimer = attackReset;
-            attackCount++;
+        {
+            attackTimer = attackReset;         
+            attackCount++;                            
         }
         //destroys if final checkpoint reached
         if(attackCount == 3)
@@ -50,6 +50,8 @@ public class DashAttack : MonoBehaviour
             Destroy(dashpositions[2]);
             anim.SetBool("Dash", false);
             brain.DamageOff();
+
+            AllowDash = false;
         }
     }
     public void Dashing()
