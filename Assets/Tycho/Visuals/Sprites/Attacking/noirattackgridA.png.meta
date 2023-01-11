@@ -1,0 +1,413 @@
+fileFormatVersion: 2
+guid: 38f5cd68ef980834294cbc2e9be382d5
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: noirattackgridA_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 729
+        width: 182
+        height: 280
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acb54fb598961e840b9848473b557279
+      internalID: -851427520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noirattackgridA_1
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 732
+        width: 259
+        height: 277
+      alignment: 9
+      pivot: {x: 0.26182362, y: 0.46818614}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b61d3e738770ed942b2935caeb493850
+      internalID: -19888389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noirattackgridA_2
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 718
+        width: 278
+        height: 273
+      alignment: 9
+      pivot: {x: 0.26542193, y: 0.49354413}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0975c0605ce1f4e4086bf0d51501501d
+      internalID: -966080116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noirattackgridA_3
+      rect:
+        serializedVersion: 2
+        x: 830
+        y: 719
+        width: 262
+        height: 273
+      alignment: 9
+      pivot: {x: 0.27660224, y: 0.5116946}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc5b145da267e0a4db9bd0543a3cee67
+      internalID: 653545807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noirattackgridA_5
+      rect:
+        serializedVersion: 2
+        x: 1103
+        y: 731
+        width: 219
+        height: 275
+      alignment: 9
+      pivot: {x: 0.32992485, y: 0.50000024}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39fa3ec290ba7d04d9f289057bd8a0f2
+      internalID: 92199432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noirattackgridA_7
+      rect:
+        serializedVersion: 2
+        x: 1392
+        y: 454
+        width: 141
+        height: 273
+      alignment: 9
+      pivot: {x: 0.3721673, y: 0.49587354}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 519e12b1a585eb94e959fd7769e4f36f
+      internalID: 755389707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noirattackgridA_9
+      rect:
+        serializedVersion: 2
+        x: 1652
+        y: 455
+        width: 314
+        height: 283
+      alignment: 9
+      pivot: {x: 0.22733691, y: 0.48407716}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ba10d1e6cdcd114890595b9ecf07ec4
+      internalID: -220429041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noirattackgridA_17
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 178
+        width: 171
+        height: 287
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7285fae37a7c2341a6f89b7ee1d8b9c
+      internalID: 612306761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noirattackgridA_18
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 181
+        width: 241
+        height: 275
+      alignment: 9
+      pivot: {x: 0.2924416, y: 0.5072758}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ced5a4453bfa414ab2fc23af99b5286
+      internalID: 706533091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noirattackgridA_19
+      rect:
+        serializedVersion: 2
+        x: 554
+        y: 176
+        width: 499
+        height: 278
+      alignment: 9
+      pivot: {x: 0.27946395, y: 0.4892039}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e5bc7cd679adf74a9847dcc1a40d586
+      internalID: -1118298468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noirattackgridA_21
+      rect:
+        serializedVersion: 2
+        x: 1101
+        y: 177
+        width: 418
+        height: 278
+      alignment: 9
+      pivot: {x: 0.31571004, y: 0.49280268}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0c5435894a5fea4296775e88c346b6e
+      internalID: 1044038402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      noirattackgridA_16: 693641165
+      noirattackgridA_11: -1845859963
+      noirattackgridA_1: -19888389
+      noirattackgridA_9: -220429041
+      noirattackgridA_14: -2032584924
+      noirattackgridA_10: 78481542
+      noirattackgridA_5: 92199432
+      noirattackgridA_13: 353749683
+      noirattackgridA_22: 1940669781
+      noirattackgridA_7: 755389707
+      noirattackgridA_0: -851427520
+      noirattackgridA_12: -1395156842
+      noirattackgridA_6: -867467472
+      noirattackgridA_15: -158941951
+      noirattackgridA_2: -966080116
+      noirattackgridA_17: 612306761
+      noirattackgridA_18: 706533091
+      noirattackgridA_8: 1232803860
+      noirattackgridA_4: -1405302115
+      noirattackgridA_21: 1044038402
+      noirattackgridA_20: 1469044729
+      noirattackgridA_3: 653545807
+      noirattackgridA_19: -1118298468
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

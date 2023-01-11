@@ -20,6 +20,10 @@ public class BossBrain : MonoBehaviour
     public float resetTime;
     public float TimeBetweenAttacks;
 
+    public GameObject hitBox;
+
+    
+
     public void Update()
     {
         if(TimeBetweenAttacks > 0)
@@ -35,7 +39,7 @@ public class BossBrain : MonoBehaviour
 
     public void ChooseAttack()
     {
-        randomATK = Random.RandomRange(1, 3);
+        randomATK = Random.Range(1, 3);
         if(randomATK == 1)
         {
             state = bossState.DashAttack;
@@ -56,5 +60,14 @@ public class BossBrain : MonoBehaviour
         {
             spikeATK.CallSpike();
         }
+    }
+
+    public void DamageOn()
+    {
+        hitBox.SetActive(true);
+    }
+    public void DamageOff()
+    {
+        hitBox.SetActive(false);
     }
 }

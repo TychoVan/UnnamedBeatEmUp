@@ -2,12 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "AttackData", menuName = "ScriptableObjects/Player/Attack", order = 1)]
-public class AttackData : ScriptableObject
+namespace Player
 {
-    [field: SerializeField] public List<string>     HittableTags   { get; private set; }
-    [field: SerializeField] public float            ManaCost       { get; private set; }
-    [field: SerializeField] public float            AttackCooldown { get; private set; }
-    [field: SerializeField] public float            DamageAmount   { get; private set; }
-    [field: SerializeField] public int              AnimationTag   { get; private set; }
+[CreateAssetMenu(fileName = "AttackData", menuName = "ScriptableObjects/Player/Attack", order = 1)]
+    public class AttackData : ScriptableObject
+    {
+        [field: SerializeField] public string       InputButtonName         { get; private set; }
+
+        [field: SerializeField] public int          Damage                  { get; private set; }
+        [field: SerializeField] public int          ManaCost                { get; private set; }
+
+
+        [field: SerializeField] public Vector2      HitOffset               { get; private set; }
+        [field: SerializeField] public Vector2      HitSize                 { get; private set; }
+        [field: SerializeField] public float        ForwardMovement         { get; private set; }
+
+        [field: SerializeField] public Color        GizmoHitboxColor        { get; private set; }
+        [field: SerializeField] public Color        GizmoHitboxHitColor     { get; private set; }
+    }
 }

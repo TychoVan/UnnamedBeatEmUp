@@ -12,6 +12,8 @@ public class DashAttack : MonoBehaviour
     public bool AllowCount = false;
     public int attackCount = 0;
     public float attackReset;
+  
+    
 
     
     [Header("Positions")]
@@ -20,7 +22,13 @@ public class DashAttack : MonoBehaviour
 
     public float xMin, xMax;
     public float yMin, yMax;
-     
+
+    [Header("Animation")]
+    public Animator anim;
+
+    [Header("BossBrain")]
+    public BossBrain brain;
+
     public void Update()
     {
            // sets
@@ -30,9 +38,9 @@ public class DashAttack : MonoBehaviour
             attackTimer = attackTimer - 1 * Time.deltaTime;
         }
         else if(attackTimer < 0)
-        {            
-            attackTimer = attackReset;
-            attackCount++;
+        {
+            attackTimer = attackReset;         
+            attackCount++;                            
         }
         //destroys if final checkpoint reached
         if(attackCount == 3)
@@ -40,18 +48,24 @@ public class DashAttack : MonoBehaviour
             Destroy(dashpositions[0]);
             Destroy(dashpositions[1]);
             Destroy(dashpositions[2]);
+            anim.SetBool("Dash", false);
+            brain.DamageOff();
+
+            AllowDash = false;
         }
     }
     public void Dashing()
     {
         //code for dashing
         if (AllowDash)
-        {
+        {           
             transform.position = Vector3.Lerp(transform.position, dashpositions[attackCount].transform.position, speed);
         }       
     }
     public void spawnPoints()
     {
+        brain.DamageOn();
+        anim.SetBool("Dash", true);
         attackCount = 0;
         for(int i = 0; i < dashpositions.Length; i++)
         {
