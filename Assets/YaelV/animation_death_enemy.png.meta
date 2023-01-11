@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -103,7 +103,322 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: animation_death_enemy_1
+      rect:
+        serializedVersion: 2
+        x: 2505
+        y: 46
+        width: 376
+        height: 420
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb5a1e1c208dd6544ac0e24bcc55a17d
+      internalID: -181111915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animation_death_enemy_3
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 517
+        width: 272
+        height: 331
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4fe0b4d85b5d124fb037feda96ebf71
+      internalID: -1281319601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animation_death_enemy_4
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 517
+        width: 219
+        height: 331
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c50cfad00a64a6a428f3f696809fc35f
+      internalID: -145762674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animation_death_enemy_5
+      rect:
+        serializedVersion: 2
+        x: 1675
+        y: 835
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fedb9b20040b9b4398df7adca2bc9df
+      internalID: -1600091901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animation_death_enemy_6
+      rect:
+        serializedVersion: 2
+        x: 1744
+        y: 837
+        width: 6
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 024596aadf7bdfb40a6a280b72e7089d
+      internalID: -148490398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animation_death_enemy_10
+      rect:
+        serializedVersion: 2
+        x: 2512
+        y: 548
+        width: 361
+        height: 336
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7cd4df58ba578145bf1316b84502a42
+      internalID: -140995681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animation_death_enemy_11
+      rect:
+        serializedVersion: 2
+        x: 1073
+        y: 499
+        width: 327
+        height: 330
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3257cee648b1d1745bd48a984294f5da
+      internalID: -1653139058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animation_death_enemy_12
+      rect:
+        serializedVersion: 2
+        x: 1670
+        y: 827
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f702a7088dd732647ac0c854793952fb
+      internalID: 950175999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animation_death_enemy_14
+      rect:
+        serializedVersion: 2
+        x: 1557
+        y: 490
+        width: 353
+        height: 321
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b385d08b11f6e704793103d50fb805e7
+      internalID: 347400573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animation_death_enemy_16
+      rect:
+        serializedVersion: 2
+        x: 2025
+        y: 500
+        width: 349
+        height: 303
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d32e364160f551a49b92c1fd650b7700
+      internalID: -583538316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animation_death_enemy_19
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 54
+        width: 364
+        height: 412
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59fec468685f5ac4ab41025d22beb578
+      internalID: 80248575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animation_death_enemy_20
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 54
+        width: 388
+        height: 435
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30b8ec10fa1aeda458e827b62ef598fb
+      internalID: 678295659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animation_death_enemy_21
+      rect:
+        serializedVersion: 2
+        x: 1005
+        y: 54
+        width: 412
+        height: 426
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9d69585fcddecc4da4c903bca48a323
+      internalID: 914331937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animation_death_enemy_22
+      rect:
+        serializedVersion: 2
+        x: 1533
+        y: 59
+        width: 383
+        height: 412
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8754e92b7cf80649b0d9775b6a5c6d6
+      internalID: -1807514361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animation_death_enemy_23
+      rect:
+        serializedVersion: 2
+        x: 2025
+        y: 46
+        width: 357
+        height: 423
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afba0e80f15410d4d91c23d2e50203a5
+      internalID: -726268262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -114,7 +429,67 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      animation_death_enemy_20: 678295659
+      animation_death_enemy_47: 1067621018
+      animation_death_enemy_51: 173160528
+      animation_death_enemy_31: -102753401
+      animation_death_enemy_22: -1807514361
+      animation_death_enemy_6: -148490398
+      animation_death_enemy_7: 972063439
+      animation_death_enemy_4: -145762674
+      animation_death_enemy_5: -1600091901
+      animation_death_enemy_40: 664726957
+      animation_death_enemy_9: -830515097
+      animation_death_enemy_42: 1943602827
+      animation_death_enemy_57: 1652710631
+      animation_death_enemy_14: 347400573
+      animation_death_enemy_11: -1653139058
+      animation_death_enemy_38: 592501754
+      animation_death_enemy_36: 394427790
+      animation_death_enemy_50: -1378920586
+      animation_death_enemy_8: 2025218246
+      animation_death_enemy_53: 452075482
+      animation_death_enemy_2: -941485610
+      animation_death_enemy_17: 1736593594
+      animation_death_enemy_27: 1428016420
+      animation_death_enemy_29: 1909956433
+      animation_death_enemy_56: 1012210129
+      animation_death_enemy_23: -726268262
+      animation_death_enemy_18: -1589792939
+      animation_death_enemy_0: -1640894308
+      animation_death_enemy_16: -583538316
+      animation_death_enemy_12: 950175999
+      animation_death_enemy_48: -448984767
+      animation_death_enemy_49: 1380381182
+      animation_death_enemy_35: -520491949
+      animation_death_enemy_1: -181111915
+      animation_death_enemy_24: -1911062995
+      animation_death_enemy_26: 28668892
+      animation_death_enemy_58: 363178775
+      animation_death_enemy_54: -108589810
+      animation_death_enemy_21: 914331937
+      animation_death_enemy_32: 12356519
+      animation_death_enemy_37: 1375975504
+      animation_death_enemy_25: 166811556
+      animation_death_enemy_43: 1623794085
+      animation_death_enemy_45: 1048040490
+      animation_death_enemy_10: -140995681
+      animation_death_enemy_55: 766503809
+      animation_death_enemy_19: 80248575
+      animation_death_enemy_28: 70165658
+      animation_death_enemy_52: 532051808
+      animation_death_enemy_44: 551869986
+      animation_death_enemy_34: 149240087
+      animation_death_enemy_15: 1420148550
+      animation_death_enemy_41: 1689411828
+      animation_death_enemy_33: -1746610110
+      animation_death_enemy_59: 99537392
+      animation_death_enemy_3: -1281319601
+      animation_death_enemy_30: -1308425822
+      animation_death_enemy_46: -571137831
+      animation_death_enemy_39: 1792308542
+      animation_death_enemy_13: 1569553539
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

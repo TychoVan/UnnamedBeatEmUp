@@ -32,7 +32,11 @@ public class TemporaryEnemyHP : MonoBehaviour, I_Damagable, I_ScoreValue
 
     // Change the health variable inside the clamp.
     public void ChangeHealth(int amount)
-    {      
+    {
+        if (anim != null)
+        {
+            anim.SetBool("Hit", true);
+        }
         Health += amount;
         Mathf.Clamp(Health, 0, maxHealth);
 
@@ -41,7 +45,11 @@ public class TemporaryEnemyHP : MonoBehaviour, I_Damagable, I_ScoreValue
         {
             OnDeath();
         }
-        StartCoroutine(slider?.LerpSlider());
+        if(slider != null)
+        {
+            StartCoroutine(slider.LerpSlider());
+        }
+        
         
     }
 
@@ -49,12 +57,25 @@ public class TemporaryEnemyHP : MonoBehaviour, I_Damagable, I_ScoreValue
     // Called upon death.
     public void OnDeath()
     {
-        gameObject.SetActive(false);        
+        if(anim == null)
+        {
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            anim.SetBool("Death", true);
+        }
+                
         Instantiate(healthPickUp);
     }
     public IEnumerator hitreset()
     {
         yield return new WaitForSeconds(0.2f);
-        anim?.SetBool("Hit", false);
+        anim.SetBool("Hit", false);
+    }
+    
+    public void animDeath()
+    {
+        gameObject.SetActive(false);
     }
 }
