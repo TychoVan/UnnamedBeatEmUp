@@ -74,5 +74,10 @@ namespace Steering
             timeBetweenAttacks = 3f;
             anim.SetBool("IsAttacking", false);
         }
+
+        public void DeathStopAttack()
+        {
+            AllowedAttack = false;
+        }
     }
 }

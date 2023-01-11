@@ -13,7 +13,6 @@ public class TemporaryEnemyHP : MonoBehaviour, I_Damagable, I_ScoreValue
 
     [SerializeField] private int startHealth = 10;
     [SerializeField] private int maxHealth = 10;
-    [SerializeField] private GameObject healthPickUp;
     [SerializeField] private float timer = 1f;
 
     public Slider slider;
@@ -36,6 +35,7 @@ public class TemporaryEnemyHP : MonoBehaviour, I_Damagable, I_ScoreValue
         if (anim != null)
         {
             anim.SetBool("Hit", true);
+            StartCoroutine(hitreset());
         }
         Health += amount;
         Mathf.Clamp(Health, 0, maxHealth);
@@ -66,7 +66,6 @@ public class TemporaryEnemyHP : MonoBehaviour, I_Damagable, I_ScoreValue
             anim.SetBool("Death", true);
         }
                 
-        Instantiate(healthPickUp);
     }
     public IEnumerator hitreset()
     {
@@ -76,6 +75,7 @@ public class TemporaryEnemyHP : MonoBehaviour, I_Damagable, I_ScoreValue
     
     public void animDeath()
     {
+        Debug.Log("Triggered");
         gameObject.SetActive(false);
     }
 }

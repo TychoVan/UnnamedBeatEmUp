@@ -1512,6 +1512,11 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &875107148 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4884611633523784134, guid: 44050ff541acbfb478e9bed9274239e6, type: 3}
+  m_PrefabInstance: {fileID: 1683070412}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1039956699
 GameObject:
   m_ObjectHideFlags: 0
@@ -2700,6 +2705,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2219323479033120514, guid: 44050ff541acbfb478e9bed9274239e6, type: 3}
+      propertyPath: m_SortingOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2219323479033120540, guid: 44050ff541acbfb478e9bed9274239e6, type: 3}
       propertyPath: target
       value: 
@@ -2716,6 +2725,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4494190106430256230, guid: 44050ff541acbfb478e9bed9274239e6, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 875107148}
     - target: {fileID: 4494190107279512951, guid: 44050ff541acbfb478e9bed9274239e6, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -3893,6 +3906,9 @@ MonoBehaviour:
   Walkable:
     serializedVersion: 2
     m_Bits: 8
+  Blocked:
+    serializedVersion: 2
+    m_Bits: 0
   distanceToCheckTop: -0.7
   distanceToCheckBottom: 1.05
   distanceToCheckLeft: 0.3
