@@ -164,16 +164,21 @@ namespace Player
             float startHeight = transform.position.y;
 
             // Set jumpheight according to direction
-            RaycastHit2D maxJumpDist = Physics2D.Raycast(pointE, pointF - pointE, distanceToCheckTop + distanceToCheckBottom);
+            RaycastHit2D rayWalkableJump = Physics2D.Raycast(pointE, pointF - pointE, distanceToCheckTop + distanceToCheckBottom, Walkable);
+            RaycastHit2D rayBlockedJump  = Physics2D.Raycast(pointE, pointF - pointE, distanceToCheckTop + distanceToCheckBottom, Blocked);
 
             // if there is a block in the way dont jump sideways
-            direction = direction == 0 ?
-                0 :
-                LookDirection = maxJumpDist ?
-                    maxJumpDist.transform.gameObject.layer == Walkable ?
-                        LookDirection
-                        : 0
-                    : 0;
+            //direction = direction == 0 ? 0 : LookDirection;
+
+            Debug.Log(rayBlockedJump);
+            Debug.Log(rayWalkableJump);
+
+            direction =
+                    direction == 0  ?
+                0 : rayWalkableJump ?
+                0 : !rayBlockedJump ?
+                0 : LookDirection;
+            Debug.Log(direction);
 
             float modifiedJumpHeight = direction == 0 ? jumpHeight : movingJumpHeight;
 
@@ -232,7 +237,8 @@ namespace Player
                 Gizmos.DrawLine(pointD, pointA);
 
                 Gizmos.color = Color.yellow;
-                Gizmos.DrawLine(new Vector2(pointB.x, transform.position.y), new Vector2(pointE.x, transform.position.y));
+                Gizmos.DrawLine(new Vector2(transform.position.x, transform.position.y + (distanceToCheckTop - ((distanceToCheckBottom + distanceToCheckTop) / 2))), 
+                                new Vector2(pointE.x,             transform.position.y + (distanceToCheckTop - ((distanceToCheckBottom + distanceToCheckTop) / 2))));
                 Gizmos.DrawLine(pointE, pointF);
             }
         }
