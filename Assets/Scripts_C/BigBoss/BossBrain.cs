@@ -13,12 +13,15 @@ public class BossBrain : MonoBehaviour
     [Header("Attacks")]
     public DashAttack dashATK;
     public spikeAttack spikeATK;
-    
+
+    [Header("Bool")]
+    public bool allowedAttack;
 
     [Header("Values")]
     public int randomATK;
     public float resetTime;
     public float TimeBetweenAttacks;
+
 
     public GameObject hitBox;
 
@@ -26,15 +29,19 @@ public class BossBrain : MonoBehaviour
 
     public void Update()
     {
-        if(TimeBetweenAttacks > 0)
+        if(allowedAttack == true)
         {
-            TimeBetweenAttacks = TimeBetweenAttacks - 1 * Time.deltaTime;
+            if (TimeBetweenAttacks > 0)
+            {
+                TimeBetweenAttacks = TimeBetweenAttacks - 1 * Time.deltaTime;
+            }
+            else if (0 > TimeBetweenAttacks)
+            {
+                TimeBetweenAttacks = resetTime;
+                ChooseAttack();
+            }
         }
-        else if(0 > TimeBetweenAttacks)
-        {
-            TimeBetweenAttacks = resetTime;
-            ChooseAttack();
-        }
+       
     }
 
     public void ChooseAttack()
@@ -70,4 +77,6 @@ public class BossBrain : MonoBehaviour
     {
         hitBox.SetActive(false);
     }
+
+    
 }
