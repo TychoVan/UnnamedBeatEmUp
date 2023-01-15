@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -127,7 +127,133 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: robotexplosion_0
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 122
+        width: 552
+        height: 455
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9b2f4c572e97de44a74f90efd9a0ba6
+      internalID: -1478850256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotexplosion_1
+      rect:
+        serializedVersion: 2
+        x: 925
+        y: 129
+        width: 567
+        height: 510
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a67258871b30a2844a9bbbfba7aa23d6
+      internalID: 418238349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotexplosion_2
+      rect:
+        serializedVersion: 2
+        x: 1707
+        y: 107
+        width: 552
+        height: 539
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b72612f7ec6e2384187ab0175ec20e60
+      internalID: -83566231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotexplosion_4
+      rect:
+        serializedVersion: 2
+        x: 2568
+        y: 100
+        width: 551
+        height: 518
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d26392ede5b6dc944a3e139d4361f12c
+      internalID: 440462583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotexplosion_6
+      rect:
+        serializedVersion: 2
+        x: 3533
+        y: 158
+        width: 284
+        height: 378
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e0855ce7051b7c4e8ebebc4406a6e6e
+      internalID: 181366619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotexplosion_7
+      rect:
+        serializedVersion: 2
+        x: 4348
+        y: 221
+        width: 183
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e0c439978b61de449c2c0aa1ac0a6ef
+      internalID: -2073494649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -138,7 +264,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      robotexplosion_2: -83566231
+      robotexplosion_4: 440462583
+      robotexplosion_3: 1487052871
+      robotexplosion_1: 418238349
+      robotexplosion_7: -2073494649
+      robotexplosion_6: 181366619
+      robotexplosion_0: -1478850256
+      robotexplosion_5: -907758878
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

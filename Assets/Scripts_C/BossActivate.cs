@@ -8,7 +8,7 @@ public class BossActivate : MonoBehaviour
     public BossBrain brain;
     public GameObject bossUI;
     public SpriteRenderer rend;
-    public GameObject plein;
+    public GameObject[] plein;
     public Animator anim;
 
    
@@ -26,7 +26,8 @@ public class BossActivate : MonoBehaviour
     {
         bossUI.SetActive(true);
         brain.allowedAttack = true;
-        plein.SetActive(true);
+        plein[0].SetActive(true);
+        plein[1].SetActive(true);
     }
         
 

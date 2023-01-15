@@ -14,6 +14,7 @@ public class TemporaryEnemyHP : MonoBehaviour, I_Damagable, I_ScoreValue
     [SerializeField] private int startHealth = 10;
     [SerializeField] private int maxHealth = 10;
     [SerializeField] private float timer = 1f;
+    [SerializeField] private BossBrain boss;
 
     public Slider slider;
 
@@ -77,5 +78,9 @@ public class TemporaryEnemyHP : MonoBehaviour, I_Damagable, I_ScoreValue
     {
         Debug.Log("Triggered");
         gameObject.SetActive(false);
+        if(boss != null)
+        {
+            boss.allowedAttack = false;
+        }
     }
 }
