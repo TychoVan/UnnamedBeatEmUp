@@ -14,7 +14,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Chivano's scene.unity
     guid: a2160c5ee43c684448b3b7ccb428cdd3
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Playtest1.unity
     guid: a3a40c8e629f29743bf863dfef508a90
+  - enabled: 1
+    path: Assets/Scenes/GameScene.unity
+    guid: 0b271997b46046e4c81ff7721e29d9d2
   m_configObjects: {}

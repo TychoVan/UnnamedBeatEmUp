@@ -92,7 +92,7 @@ namespace Player
         public void OnDeath()
         {
             gameObject.SetActive(false);
-            SceneManager.LoadScene("Playtest1");
+            SceneManager.LoadScene("MainMenu_C");
         }
     }
 }

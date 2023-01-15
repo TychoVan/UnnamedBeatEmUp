@@ -10,6 +10,7 @@ public class BossActivate : MonoBehaviour
     public SpriteRenderer rend;
     public GameObject[] plein;
     public Animator anim;
+    public GameObject Map;
 
    
     public void OnTriggerEnter2D(Collider2D collision)
@@ -24,6 +25,7 @@ public class BossActivate : MonoBehaviour
 
     public void ActiveerBoss()
     {
+        Map.SetActive(false);
         bossUI.SetActive(true);
         brain.allowedAttack = true;
         plein[0].SetActive(true);
