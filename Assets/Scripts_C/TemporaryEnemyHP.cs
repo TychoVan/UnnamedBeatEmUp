@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UI;
+using Steering;
 
 public class TemporaryEnemyHP : MonoBehaviour, I_Damagable, I_ScoreValue
 {
@@ -19,6 +20,10 @@ public class TemporaryEnemyHP : MonoBehaviour, I_Damagable, I_ScoreValue
     public Slider slider;
 
     public Animator anim;
+
+    [Header("PickUp")]
+    [SerializeField] private float          dropChancePercent;
+    [SerializeField] private GameObject     healthPickUp;
 
 
 
@@ -76,6 +81,15 @@ public class TemporaryEnemyHP : MonoBehaviour, I_Damagable, I_ScoreValue
     
     public void animDeath()
     {
+        float chance = Random.Range(0, 100);
+        Debug.Log(chance);
+        if (chance <= dropChancePercent)
+        {
+            Debug.Log("spawned pickup");
+            HealthPickup pickup = Instantiate(healthPickUp, transform.position, Quaternion.identity).GetComponent<HealthPickup>();
+            pickup.target = GetComponent<HunterBrain>().target;
+        }
+
         Debug.Log("Triggered");
         gameObject.SetActive(false);
         if(boss != null)

@@ -168,17 +168,12 @@ namespace Player
             RaycastHit2D rayBlockedJump  = Physics2D.Raycast(pointE, pointF - pointE, distanceToCheckTop + distanceToCheckBottom, Blocked);
 
             // if there is a block in the way dont jump sideways
-            //direction = direction == 0 ? 0 : LookDirection;
-
-            Debug.Log(rayBlockedJump);
-            Debug.Log(rayWalkableJump);
-
             direction =
-                    direction == 0  ?
-                0 : rayWalkableJump ?
-                0 : !rayBlockedJump ?
-                0 : LookDirection;
-            Debug.Log(direction);
+                direction           == 0    ?
+                0 : rayBlockedJump  == true ?
+                0 : rayWalkableJump == true ?
+                LookDirection : 0;
+
 
             float modifiedJumpHeight = direction == 0 ? jumpHeight : movingJumpHeight;
 

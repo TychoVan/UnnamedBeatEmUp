@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Steering;
 
 public class TempEnemyHealth : MonoBehaviour, I_Damagable
 {
@@ -36,7 +37,9 @@ public class TempEnemyHealth : MonoBehaviour, I_Damagable
     // Called upon death.
     public void OnDeath()
     {
-        gameObject.SetActive(false);
-        
+        HealthPickup pickup = Instantiate(healthPickUp, transform.position, Quaternion.identity).GetComponent<HealthPickup>();
+        pickup.target = GetComponent<HunterBrain>().target;
+
+        this.gameObject.SetActive(false);
     }
 }

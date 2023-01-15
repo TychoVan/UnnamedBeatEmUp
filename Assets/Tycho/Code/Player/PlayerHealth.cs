@@ -45,7 +45,14 @@ namespace Player
         // Change the health variable inside the clamp.
         public void ChangeHealth(int amount)
         {
-            if (amount < 0 && !takingDamage) StartCoroutine(HandleTakeDamage(amount));
+            if (amount < 0)                         // Negative health change.
+            {
+                if (!takingDamage)  StartCoroutine(HandleTakeDamage(amount));
+            }
+            else {                                  // Positive health change.
+                if (Health + amount <= maxHealth) Health += amount;
+                else                              Health = maxHealth;        
+            }
 
             // Check if the health is 0.
             if (Health <= 0)
