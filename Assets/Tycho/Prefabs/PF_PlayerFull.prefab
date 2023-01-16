@@ -229,15 +229,18 @@ MonoBehaviour:
   yWalkSpeed: 2
   xWalkSpeed: 3
   <InputAxis>k__BackingField: {x: 0, y: 0}
-  tempHeightBounds: {x: -1.5, y: -3.9}
-  tempWidthBounds: {x: -8.49, y: 8.63}
   Walkable:
     serializedVersion: 2
     m_Bits: 8
+  Blocked:
+    serializedVersion: 2
+    m_Bits: 0
   distanceToCheckTop: 0.5
   distanceToCheckBottom: 0.5
   distanceToCheckLeft: 0.5
   distanceToCheckRight: 0.5
+  drawRaycheckGizmos: 0
+  <InBounds>k__BackingField: 0
   jumpHeight: 2.2
   JumpForce: 4
   gravity: 4
@@ -290,6 +293,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   horizontalVelocity: 8
+  maxHorizontalMovement: 0
   movingJumpHeight: 2
   canMove: 1
 --- !u!114 &3756341746935209202
@@ -307,7 +311,7 @@ MonoBehaviour:
   <Health>k__BackingField: 0
   startHealth: 3
   maxHealth: 3
-  OnTakeDamage:
+  changeSliders:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2797553421756741396}

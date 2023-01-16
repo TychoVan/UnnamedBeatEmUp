@@ -15,7 +15,8 @@ namespace Player
         [SerializeField] private int            startHealth         = 10;
         [SerializeField] private int            maxHealth           = 10;
 
-        [SerializeField] private UnityEvent     OnTakeDamage;
+        [SerializeField] private UnityEvent     changeSliders;
+
         [SerializeField] private float          invincibilityTime;
         [SerializeField] private float          backwardsMovement;
         [SerializeField] private Color          damageColor;
@@ -51,7 +52,8 @@ namespace Player
             }
             else {                                  // Positive health change.
                 if (Health + amount <= maxHealth) Health += amount;
-                else                              Health = maxHealth;        
+                else                              Health = maxHealth;
+                changeSliders.Invoke();
             }
 
             // Check if the health is 0.
@@ -72,7 +74,7 @@ namespace Player
 
             spriteRenderer.color = damageColor;
             Health = Mathf.Clamp(Health += amount, 0, maxHealth);
-            OnTakeDamage.Invoke();
+            changeSliders.Invoke();
             animator?.SetTrigger("Take Damage");
 
             yield return new WaitForSeconds(invincibilityTime);

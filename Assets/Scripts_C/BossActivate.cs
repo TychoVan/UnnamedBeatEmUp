@@ -25,13 +25,16 @@ public class BossActivate : MonoBehaviour
 
     public void ActiveerBoss()
     {
-        Map.SetActive(false);
+      
         bossUI.SetActive(true);
         brain.allowedAttack = true;
         plein[0].SetActive(true);
         plein[1].SetActive(true);
     }
-        
+    public void DisableMap()
+    {
+        Map.SetActive(false);
+    }
 
     
 }
